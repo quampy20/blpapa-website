@@ -121,11 +121,17 @@ invent or infer one.
 | | |
 |---|---|
 | Next | **27 September 2026, 11am–4pm, District 56, Elk Grove, CA. Free admission.** |
+| Venue address | District 56, 9711 Big Horn Blvd, Elk Grove, CA 95757 |
 | Inaugural | 8 October 2023 |
+| Planning began | June 2023 |
 | Inaugural attendance | 5,000+ |
 | Inaugural vendors | 70+ |
 | Inaugural performers | Jules Aurora, Jamieboy |
 | Organized by | Dr. Edith Montemayor |
+
+**Their own two sections, quoted verbatim on `/events/bayanihan-festival/`** —
+"What is Bayanihan Festival?" and "Bayanihan Festival's History" — are
+transcribed from their own festival page. Do not paraphrase or shorten them.
 
 Free admission is deliberate and worth stating — it is funded by vendors and
 sponsors.
@@ -161,6 +167,29 @@ remain the fallback links beneath the unified form — see `HANDOFF.md` §5.8.
 
 Verify each URL resolves and quote headlines accurately. None of this is on
 their current site; it is real third-party credibility for a young non-profit.
+
+## Photographs on the site
+
+Supplied by Jay from BLPAPA's own material, 19 Aug 2026, via the approved Drive
+folder. All are in `src/assets/images/`.
+
+| File | What it shows | Where it is used |
+|---|---|---|
+| `dancers-bayanihan-festival` | Two dancers kneeling mid-performance | Home hero, Events, Gallery |
+| `tinikling-bayanihan-festival` | Youth performing *tinikling* | Home, Festival, Gallery |
+| `drummer-bayanihan-festival` | Drummer on the festival stage | Festival, Gallery |
+| `hosts-bayanihan-festival` | Two hosts sharing the microphone | Festival, Gallery |
+| `pinoy-merch-bayanihan-festival` | Tufted "pinoy" rug at a vendor stall | Gallery |
+| `vendor-market-bayanihan-festival` | Vendor table of drinkware and totes | Gallery |
+| `dr-montemayor`, `khrizza-manalastas`, `john-tran`, `rochelle-datangel`, `mia-ancog` | Portraits | About |
+
+**No portrait was supplied for Joyce Ballesteros or Monica Alleje Simonson.**
+Their cards carry the seal rather than somebody else's face. Add the real
+photograph if it arrives.
+
+**One file was deliberately discarded:** the festival page's banner is BLPAPA's
+*previous* logo. The approved 2026 logo supersedes it (`CLAUDE.md` §3), so it
+is not on the site.
 
 ## Photography — cleared for reuse
 

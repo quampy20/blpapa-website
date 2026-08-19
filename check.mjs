@@ -101,25 +101,48 @@ async function checkPage(file, allFiles) {
   for (const [, src] of raw.matchAll(/<script[^>]+src="\/scripts\/([^"]+)"/g)) {
     bytes += await sizeOf(`scripts/${src}`);
   }
-  // A <picture> offers WebP and JPEG, and a srcset offers 1x and 2x, but the
-  // browser downloads exactly one of each group. Group by the path with the
-  // extension and any @Nx size suffix removed, then count the heaviest
-  // candidate in each group — the honest worst case for one visitor.
-  const groups = new Map();
-  for (const [, attr] of raw.matchAll(/(?:src|srcset)="([^"]*\/assets\/[^"]*)"/g)) {
-    for (const candidate of attr.split(',')) {
-      const url = candidate.trim().split(/\s+/)[0];
-      if (!url.startsWith('/assets/')) continue;
-      const key = url.replace(/-\d+(?=\.[a-z]+$)/, '').replace(/\.[a-z]+$/, '');
-      const size = await sizeOf(url.replace(/^\//, ''));
-      groups.set(key, Math.max(groups.get(key) ?? 0, size));
+  // The budget in CLAUDE.md §2 is "< 500 KB on first load", so an image marked
+  // loading="lazy" does not count against it — the browser does not fetch it
+  // until the reader scrolls that far. Both figures are reported, because a
+  // gallery that quietly pulls megabytes as you scroll is still bad on a phone.
+  //
+  // Within one <picture> or srcset the browser downloads exactly one file, so
+  // candidates are grouped by path with the extension and any size suffix
+  // stripped, and only the heaviest in each group is counted.
+  const eager = new Map();
+  const lazy = new Map();
+  const blocks = [
+    ...raw.matchAll(/<picture\b[\s\S]*?<\/picture>/g),
+    ...raw.matchAll(/<img\b(?:(?!<\/picture>)[^>])*>/g),
+  ].map((m) => m[0]);
+
+  for (const block of blocks) {
+    const target = /loading=["']lazy["']/.test(block) ? lazy : eager;
+    for (const [, attr] of block.matchAll(/(?:src|srcset)="([^"]*\/assets\/[^"]*)"/g)) {
+      for (const candidate of attr.split(',')) {
+        const url = candidate.trim().split(/\s+/)[0];
+        if (!url.startsWith('/assets/')) continue;
+        const key = url.replace(/-\d+(?=\.[a-z]+$)/, '').replace(/\.[a-z]+$/, '');
+        const size = await sizeOf(url.replace(/^\//, ''));
+        target.set(key, Math.max(target.get(key) ?? 0, size));
+      }
     }
   }
-  for (const size of groups.values()) bytes += size;
+
+  const sum = (map) => [...map.values()].reduce((a, b) => a + b, 0);
+  // An image appearing both eagerly and lazily is fetched once, on first load.
+  for (const key of eager.keys()) lazy.delete(key);
+  bytes += sum(eager);
+  const total = bytes + sum(lazy);
+  const kb = (n) => `${(n / 1024).toFixed(0)} KB`;
+
   if (bytes > PAGE_BUDGET) {
-    fail(page, `weighs ${(bytes / 1024).toFixed(0)} KB, over the ${PAGE_BUDGET / 1024} KB budget`);
+    fail(page, `first load is ${kb(bytes)}, over the ${PAGE_BUDGET / 1024} KB budget`);
   } else {
-    notes.push(`${page} — ${(bytes / 1024).toFixed(0)} KB`);
+    notes.push(
+      `${page} — ${kb(bytes)} first load`
+      + (total > bytes ? `, ${kb(total)} fully scrolled` : ''),
+    );
   }
 
   // -- Internal links resolve to something the build actually emitted.

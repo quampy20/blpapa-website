@@ -149,6 +149,62 @@
   margin: 0;
 }
 
+/* Portrait variant. The photograph carries the card, so the padding moves to
+ * the caption and the gold rule becomes a bottom edge rather than a left one —
+ * a left border beside a full-bleed photo reads as a rendering fault. */
+.person--portrait {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  border-left: 0;
+  border-bottom: 4px solid var(--blpapa-gold);
+  height: 100%;
+}
+
+.person--portrait img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  /* Portraits are framed with headroom, so bias the crop upward to keep faces
+   * out of the bottom edge. */
+  object-position: center 22%;
+}
+
+.person--portrait figcaption {
+  padding: var(--space-s) var(--space-m) var(--space-m);
+}
+
+.person--portrait .person__name,
+.person--portrait .person__role {
+  display: block;
+}
+
+.person--portrait .person__name {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--blpapa-navy);
+  margin-bottom: var(--space-3xs);
+}
+
+/* Stands in where BLPAPA has not supplied a portrait, so the card keeps the
+ * grid's rhythm without borrowing somebody else's face. */
+.person__seal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 5;
+  background: var(--blpapa-cream);
+}
+
+.person__seal img {
+  width: 84px;
+  height: auto;
+  aspect-ratio: auto;
+  opacity: 0.85;
+}
+
 /* Callout — a bordered aside for context that is important but not a warning. */
 .callout {
   padding: var(--space-m);
