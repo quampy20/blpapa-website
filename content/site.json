@@ -74,6 +74,7 @@
   "press": [
     { "outlet": "KCRA",                      "year": 2024, "url": "https://www.youtube.com/watch?v=Fe-r1JNRCqw", "_note": "Taken from BLPAPA's own sponsorship material. Confirm this is the intended segment before launch." },
     { "outlet": "Sacramento News & Review",  "year": 2025, "url": "https://sacramento.newsreview.com/2025/10/17/elk-groves-bayanihan-festival-brings-people-together-during-filipino-american-history-month/" },
-    { "outlet": "New Times Magazine",        "year": 2025, "url": "https://newtimesmagazine.com/solvingsacramento/bayanihan-festival-in-sacramento-celebrates-local-filipino-culture/" }
+    { "outlet": "New Times Magazine",        "year": 2025, "url": "https://newtimesmagazine.com/solvingsacramento/bayanihan-festival-in-sacramento-celebrates-local-filipino-culture/" },
+    { "outlet": "Solving Sacramento",        "year": 2025, "url": "https://solvingsacramento.org/2025/09/bayanihan-festival-in-sacramento-celebrates-local-filipino-culture/", "_note": "Listed in BLPAPA's own 2026 sponsorship packet." }
   ]
 }
