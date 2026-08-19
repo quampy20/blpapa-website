@@ -97,10 +97,17 @@
   .grid { gap: var(--space-l); }
 }
 
-/* Two-column split that stacks on mobile. */
+/* Two-column split that stacks on mobile.
+ * Aligned to the top, not centred: where the columns differ a lot in height —
+ * contact details beside a long form — centring strands the short column in
+ * the middle with a gap above it. */
 .split {
   display: grid;
   gap: var(--space-l);
+  align-items: start;
+}
+
+.split--center {
   align-items: center;
 }
 
