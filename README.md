@@ -34,11 +34,18 @@ Node 18 or newer. There is nothing to install.
 | **`HANDOFF.md`** | Current state, decisions *with their reasoning*, open questions |
 | **`content/verified-facts.md`** | Every organizational fact, with sources. **If it is not here, it is not verified** |
 
-The most important rule in the project, and the easiest to break under time
-pressure: **never fabricate an organizational fact.** No invented board bios,
-dollar figures, dates, attendance numbers, testimonials, or partners. Use a
-visibly-marked placeholder and log the question. This site gets shown to the
-people who run this organization.
+Two content rules matter more than anything else here, and they pull against
+each other:
+
+**Never fabricate an organizational fact.** No invented board bios, dollar
+figures, dates, attendance numbers, testimonials, or partners. This site gets
+shown to the people who run this organization.
+
+**Never print our open questions on their website either.** No visible "to be
+confirmed with BLPAPA" boxes — they read as unfinished and they second-guess
+the organization on its own site. Write around the gap so the page reads as
+finished, and log the question in `HANDOFF.md` §7.1. `CLAUDE.md` §5.1 has the
+full rule and an example of each.
 
 ---
 
@@ -69,6 +76,7 @@ brand-assets/          Approved masters, NOT deployed (print sizes, 4 MB)
 tools/                 One-off asset and font generation, and the Apps Script
 docs/                  Style guide, site plan, owner guide, forms setup
 dist/                  Build output. Never edited by hand, never committed
+preview/               Single-file shareable copy. Also generated, also not committed
 ```
 
 ---
@@ -125,6 +133,18 @@ python3 tools/generate-logo-sizes.py   # web logo sizes + the social card
 python3 tools/optimize-photos.py       # photographs -> WebP + JPEG
 python3 tools/fetch-fonts.py           # vendor Montserrat + Noto Sans locally
 ```
+
+To show the site to someone without deploying it, `tools/build-preview.py`
+squashes `dist/` into a single self-contained HTML file — every stylesheet,
+font, and image embedded, plus a small script that swaps pages when a link is
+clicked. Output lands in `preview/`, which is generated and not committed.
+
+```bash
+node build.mjs && python3 tools/build-preview.py
+```
+
+The preview is for looking at only. If it ever disagrees with `dist/`,
+`dist/` is right.
 
 Two opposite rules, both deliberate:
 
