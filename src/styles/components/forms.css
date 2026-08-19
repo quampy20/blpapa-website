@@ -290,24 +290,21 @@
   margin-bottom: var(--space-2xs);
 }
 
-/* Notice shown while the unified endpoint is unset. Until the Sheet and Apps
- * Script live on a BLPAPA-owned account, this form must not take real
- * applications — HANDOFF.md §5.8 makes that a hard pre-launch gate. */
+/* Shown while the form has no destination set yet, so nobody fills one in
+ * believing it was sent. Styled as a calm note rather than an alarm — it is
+ * ordinary information, and this page is shown to people we want to impress. */
 .form-preview-notice {
   padding: var(--space-m);
   margin-bottom: var(--space-l);
-  background: #FCEDEA;
-  border: 2px solid var(--blpapa-red-accessible);
-  border-radius: var(--radius-m);
+  background: #FEF6D5;
+  border-left: 5px solid var(--blpapa-gold);
+  border-radius: 0 var(--radius-m) var(--radius-m) 0;
 }
 
 .form-preview-notice__title {
-  display: flex;
-  align-items: center;
-  gap: 0.4em;
   font-family: var(--font-heading);
   font-weight: 700;
-  color: var(--blpapa-red-accessible);
+  color: var(--blpapa-navy);
   margin-bottom: var(--space-2xs);
 }
 

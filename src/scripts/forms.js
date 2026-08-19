@@ -139,10 +139,10 @@ if (root) {
       const notice = document.createElement('div');
       notice.className = 'form-preview-notice';
       notice.innerHTML =
-        '<p class="form-preview-notice__title">This form is a preview</p>'
-        + '<p>It is not connected yet, so nothing you type here reaches BLPAPA. '
-        + 'To send a real application right now, use the Google Form linked at '
-        + 'the bottom of this section — that one is live and monitored.</p>';
+        '<p class="form-preview-notice__title">Please use the form linked below</p>'
+        + '<p>We are in the middle of moving our applications over to this page. '
+        + 'Until that is finished, send yours through the form at the bottom of '
+        + 'this section — it goes straight to us and we are watching it daily.</p>';
       form.prepend(notice);
     }
 
@@ -176,11 +176,10 @@ if (root) {
       }
 
       if (!endpoint) {
-        status(form, 'red',
-          '<p class="callout__title">Not connected yet</p>'
-          + '<p>This form is a preview and cannot send your application. '
-          + 'Please use the Google Form linked just below, which goes straight '
-          + 'to BLPAPA.</p>');
+        status(form, 'gold',
+          '<p class="callout__title">Almost — one more step</p>'
+          + '<p>This page is not taking applications yet. Please send yours '
+          + 'through the form linked just below, which comes straight to us.</p>');
         return;
       }
 

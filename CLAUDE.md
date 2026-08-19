@@ -364,23 +364,53 @@ disciplined — it pre-decides the 60/25/10/5 balance per section.
 These are the rules most likely to be violated by an agent moving fast. They
 are the ones that matter most.
 
-### 5.1 Never fabricate organizational facts
+### 5.1 Never fabricate organizational facts — and never editorialize either
 
-Do not invent board members, event dates, dollar amounts, attendance figures,
-program names, testimonials, partner organizations, or history. If a fact is
-not in `/content/verified-facts.md` and not on the live Google Site, it does
-not go on the page.
+Two rules, and they pull in different directions. Hold both.
 
-When something is needed but unknown, use a **visible, labeled placeholder**:
+**Do not invent.** No made-up board members, event dates, dollar amounts,
+attendance figures, program names, testimonials, partner organizations, or
+history. If a fact is not in `/content/verified-facts.md` and not in material
+BLPAPA supplied, it does not go on the page. This site will be shown to the
+people who actually run this organization; a fabricated detail is the fastest
+way to lose the pitch and it is dishonest besides.
+
+**Do not put your questions on their website.** *Instruction from Jay,
+19 Aug 2026, and it supersedes the old placeholder rule below.* Earlier
+sessions filled the pages with visible red boxes reading "to be confirmed with
+BLPAPA" and "verify before launch." Those are gone and must not come back. It
+is not our place to question their message, their photographs, their roster, or
+their wording on their own site, and a page covered in red boxes reads as
+unfinished to the people we are trying to impress.
+
+So when something is unknown, **write around it**. Say what is true, leave out
+what is not known, and offer a way to find out:
 
 ```html
-<!-- PLACEHOLDER: awaiting confirmation from BLPAPA -->
-<p class="placeholder">[Board member bio — to be provided]</p>
+<!-- Right: the gap is invisible to the reader, and the page still works. -->
+<p>Language, history, and cooking classes are on the way as our Educational
+   Program grows. <a href="/contact/">Send us a note</a> and we will tell you
+   when they open.</p>
+
+<!-- Wrong: our open question, printed on their website. -->
+<p class="placeholder">[Class schedule — to be confirmed with BLPAPA]</p>
 ```
 
-Never a plausible-looking invention. This site will be shown to the people who
-actually run this organization; a fabricated detail is the fastest way to lose
-the pitch and it is dishonest besides.
+That is not a licence to invent a schedule. It is the difference between a
+finished sentence that happens not to contain a date, and a note to ourselves
+left where the public can read it.
+
+**Where the questions go instead:** `HANDOFF.md`. Every open question, source
+conflict, and thing needing confirmation belongs there, in full detail. That is
+what the file is for.
+
+**Where sources disagree,** prefer BLPAPA's own most complete material and
+present one clean answer. Do not print both versions and ask the reader to
+sort it out. Log the discrepancy in `HANDOFF.md`.
+
+**The one exception** is a functional warning a visitor genuinely needs — for
+example, a form that cannot yet send. Keep those, keep them calm and plainly
+worded, and phrase them as helpful direction rather than as a defect report.
 
 ### 5.2 Intake forms — unified page, but intake must not break
 
@@ -617,6 +647,35 @@ Treated as a requirement, not a nice-to-have.
 ---
 
 ## 8. Working agreements
+
+### 8.0 How to talk to the project owner
+
+**Instruction from Jay, 19 Aug 2026.** Jay is not a developer. Explain things
+the way you would to a bright ninth-grader: plain words, short sentences, and
+the point first.
+
+- **Say what changed and what it means for him.** Not "refactored the template
+  layer" but "the pages now share one header, so a phone number is typed once
+  and updates everywhere."
+- **No jargon without a plain-English translation.** Avoid *endpoint, repo,
+  commit, deploy, CSS, DOM, breakpoint, regex, CORS, WCAG* unless you
+  immediately say what it means in ordinary words. Prefer the ordinary word
+  outright: "the web address the forms send to," "saved," "published,"
+  "how it looks on a phone."
+- **Describe things by what the visitor sees**, not by the file that produces
+  it. "The dark blue strip at the bottom of every page" beats
+  `src/partials/footer.html`.
+- **Lead with the answer.** Put the result in the first sentence, then the
+  detail if it is needed. Do not narrate the steps taken to get there.
+- **Numbers need a yardstick.** "400 KB, which is under our 500 KB limit and
+  means it loads fast on a phone" — not a bare figure.
+- **Keep file paths and code out of the summary** unless he asks. They belong
+  in the files, not in the conversation.
+
+This applies to chat replies. Code comments and the docs in `/docs` still carry
+the technical detail, because a future developer reads those.
+
+### 8.1 Before, during, after
 
 **Before starting a task:** read `HANDOFF.md` for current state and open
 questions. Do not re-derive what a previous session already settled.

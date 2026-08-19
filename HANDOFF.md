@@ -38,11 +38,11 @@ still a speculative pitch** (see §6).
 `forms.unifiedEndpoint` in `content/site.json` is **empty, on purpose.** That
 is the safe state described in §5.8, and it is what the repository ships in.
 
-With it empty, every form on the site shows a visible preview notice, refuses
-to submit, and points the visitor at the canonical Google Form — which stays
-live and monitored throughout. Filling it in before the Sheet lives on a
-BLPAPA-owned account would mean real vendor applications landing in a personal
-spreadsheet nobody is watching.
+With it empty, every form on the site shows a calm note asking the visitor to
+use the Google Form linked directly below it — which stays live and monitored
+throughout — and will not submit. Filling the endpoint in before the Sheet
+lives on a BLPAPA-owned account would mean real vendor applications landing in
+a personal spreadsheet nobody is watching.
 
 The five-step checklist in §5.8 is the gate. `docs/forms-setup.md` is the same
 checklist written for a non-technical owner.
@@ -668,27 +668,34 @@ answer.
 
 ### 7.1 Questions raised during the build
 
-New since the discovery session. All are placeheld visibly on the site rather
-than guessed at.
+**These live here and nowhere else.** Jay's instruction of 19 Aug 2026 is that
+open questions do not go on BLPAPA's website — see `CLAUDE.md` §5.1. Every
+visible "to be confirmed" box has been removed from the pages and the copy
+rewritten to read as finished. Confirm the items below directly with BLPAPA;
+do not put them back on the site.
 
-- **The board roster does not agree between two sources.** The organization's
-  own website lists four board members and one volunteer (Dr. Edith
-  Montemayor, Khrizza Manalastas, John Tran, Rochelle Datangel; Mia Ancog as
-  Marketing Director). Their sponsorship material additionally names **Joyce
-  Ballesteros** on the board and **Monica Alleje Simonson** in volunteer staff,
-  and spells Mia's surname **"Acong"**. The site publishes the website roster —
-  `verified-facts.md` is the source of truth — and carries a visible
-  placeholder noting the difference. Do not merge the two lists without asking.
+- **The board roster came from two sources that disagreed.** Their website
+  lists Dr. Edith Montemayor, Khrizza Manalastas, John Tran and Rochelle
+  Datangel, with Mia Ancog as a volunteer. Their sponsorship material adds
+  **Joyce Ballesteros** to the board and **Monica Alleje Simonson** to
+  volunteer staff, and spells Mia's surname **"Acong"**. The About page now
+  publishes the combined list — everyone named in BLPAPA's own materials —
+  using the website's spelling of Mia Ancog, and giving Joyce Ballesteros the
+  neutral title "Board member" because neither source states one. Worth a
+  quick confirmation, but the page reads as finished either way.
 - **Sponsorship tiers and vendor pricing** are taken from the supplied mockup,
   which came from BLPAPA's own sponsorship packet. Worth confirming the
   figures are current before launch, since they are the only dollar amounts on
   the site.
-- **The KCRA YouTube URL** (`watch?v=Fe-r1JNRCqw`) came from the same mockup.
-  It is now in `site.json` and used on the Gallery page, with a visible
-  placeholder asking for confirmation that it is the intended segment.
+- **The KCRA YouTube URL** (`watch?v=Fe-r1JNRCqw`) came from the same mockup
+  and is now in `site.json` and linked from the Gallery page.
 - **Festival deadlines** (performer 23 Aug, volunteer 6 Sep, vendor 31 Aug with
   payment 15 Sep) come from the mockup and are printed on the festival and
   forms pages. Confirm they are the 2026 dates.
+- **A mailing list** has not been chosen. The newsletter page now invites
+  people to get in touch or follow Instagram rather than showing an empty
+  signup box. Mailchimp's free tier or Buttondown would both work if one is
+  wanted later.
 - **A sponsor logo upload** was dropped from the sponsorship form. The Apps
   Script path is urlencoded text and cannot carry a file, and adding a
   third-party upload service would put sponsor assets with a vendor nobody
@@ -697,6 +704,9 @@ than guessed at.
 - **The phone number** is published on the site (footer and Contact page). It
   is already public on GivingEdge, so this is not a new disclosure, but
   `site.json` still flags it and it is worth a yes from BLPAPA.
+- **The Facebook link** points at a Facebook search for the organization's
+  name, because no direct page URL was supplied. Swap it for the real one in
+  the footer and on the Contact page as soon as BLPAPA provides it.
 
 ## 8. Session log
 
@@ -713,4 +723,5 @@ than guessed at.
 | 19 Aug 2026 | Favicon mark | Jay supplied `blpapasunmountaintransparent512x512.png` — simplified sun-over-mountain, no figures. Tested at 64/32/16px: clean, clean, soft-but-readable. Generated icon derivatives. Closed §5.1; SVG dropped as not worth chasing. |
 | 19 Aug 2026 | Brand system | Jay added the approved style guide (18 Aug 2026) and five logo files. **Superseded the entire design system**: new palette (Heritage Navy anchor), new type (Montserrat/Noto Sans), new logo lockups, new motif set, photography direction. Verified all 7 of the guide's contrast ratios — all match — and added the missing logo-red-on-cream failure (4.21). Rewrote `CLAUDE.md` §3, added §4 section treatments, §5.4 voice principles, §5.6 name conflict. Closed §5.1. Opened §5.7. No code. |
 | 19 Aug 2026 | **Build** | Built the whole site from the handoff package. Zero-dependency `build.mjs` + `lib/markdown.mjs`, `check.mjs` enforcing the §8 checklist, preview server, asset tooling. Design system from `CLAUDE.md` §3 with three derived tints, all contrast re-verified. 10 pages incl. the unified forms page and the newsletter as real HTML. Decap CMS wired with three collections and editorial workflow. **Tested the submit path end to end against a mock endpoint — urlencoded, no CORS preflight, both success and failure paths.** Verified keyboard nav, 200% zoom, 375px, reduced motion. Self-hosted the fonts instead of Google (§2's anti-surveillance rule). Wrote four docs. Endpoint left empty on purpose (§1.1). Raised the board-roster conflict and four other questions in §7.1. |
+| 19 Aug 2026 | **Copy + tone pass** | Jay: stop questioning BLPAPA's content, and explain things in plain language rather than developer terms. Removed all eleven visible "to be confirmed" boxes from the pages and rewrote the copy to read as finished — the open questions now live only in §7.1 here. Published the combined board roster from BLPAPA's own materials instead of flagging the source conflict on their site. Softened the forms notice from a red alarm to a calm gold note. Rewrote `CLAUDE.md` §5.1 to forbid visible placeholders and added §8.0 on writing for a non-technical owner. |
 | 19 Aug 2026 | GivingEdge find | Jay found their GivingEdge profile. Confirmed 501(c)(3) + EIN 93-2844176 independently against IRS records. Captured mailing address, phone, both domains, socials, self-description, program detail, and live campaign figures. Closed §5.4. Rewrote §5.5 (domain). Added `CLAUDE.md` §5.5 governing donation and financial claims. No code written. |
