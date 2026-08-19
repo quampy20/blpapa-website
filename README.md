@@ -47,6 +47,14 @@ the organization on its own site. Write around the gap so the page reads as
 finished, and log the question in `HANDOFF.md` §7.1. `CLAUDE.md` §5.1 has the
 full rule and an example of each.
 
+And one hard boundary, which has already been crossed once:
+
+**Jay's Google Drive holds other clients' work. Do not browse it.** Exactly one
+folder is in scope — `BLPAPA 8/18/26`, id `1iA3DjHCdDH0nhPH59vM4a9qafzQIeHGb`.
+Never run an account-wide search; scope every query to that folder or to a file
+id Jay supplied, and ask him before touching anything else. Same rule for every
+other connected account. `CLAUDE.md` §8.1 is the full rule.
+
 ---
 
 ## Layout

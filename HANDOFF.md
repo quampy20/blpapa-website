@@ -686,20 +686,30 @@ checks page by page.
 
 **What unblocks it.** Anything that puts their content somewhere reachable:
 
-1. **Drive works and is the easiest path.** The Google Drive connector reads
-   Jay's Drive fine — that is how the sponsorship packet was pulled. Saving
-   each page of the Google Site as a PDF (Print → Save as PDF), or
-   screenshotting each page, into the "BLPAPA 8/18/26" folder makes all of it
-   readable, images included.
+1. **A zip attached in chat is the best route.** It touches no connected
+   account at all, and it is how the original handoff package arrived.
+   `tools/import-photos.py --from-dir` takes it from there.
 2. Pasting the page text straight into chat.
-3. Sharing the Google Site itself to Jay's Drive — note it did **not** appear
-   under `mimeType = 'application/vnd.google-apps.site'`, so this may not work.
+3. **The one in-scope Drive folder** — `BLPAPA 8/18/26`, id
+   `1iA3DjHCdDH0nhPH59vM4a9qafzQIeHGb`. Page PDFs (Print → Save as PDF) or
+   screenshots dropped in there are readable, images included.
+   **Read `CLAUDE.md` §8.1 before touching Drive at all:** that folder is the
+   entire permitted scope, account-wide searches are forbidden, and anything
+   outside it needs Jay's explicit go-ahead first.
 
-**Already recovered from their sponsorship packet** (BLPAPA-owned, in Drive,
-readable): their full About Us text, the FAHM section, the five "why sponsor"
-reasons, all six sponsorship tiers, the board and volunteer roster, and the
-three press links. All of it is now on the site verbatim. The packet contains
-**no team photographs** — those exist only on their website.
+**Already recovered from their sponsorship packet** (BLPAPA-owned, shared to
+Jay directly by `bukangliwayway@blpapa.org`): their full About Us text, the
+FAHM section, the five "why sponsor" reasons, all six sponsorship tiers, the
+board and volunteer roster, and the three press links. All of it is now on the
+site verbatim. The packet contains **no team photographs** — those exist only
+on their website. It sits in "Shared with me" rather than in the in-scope
+folder, so confirm with Jay before opening it again (`CLAUDE.md` §8.1).
+
+**Still outstanding, and only Jay can supply it:** the "A Brief History"
+section, whatever else their pages carry that nobody has checked, the page hero
+images, and the team photographs matched to names. No photographs have been
+imported. The site still carries the single tinikling photo from the handoff
+package.
 
 ### 7.1 Questions raised during the build
 
@@ -760,4 +770,5 @@ do not put them back on the site.
 | 19 Aug 2026 | **Build** | Built the whole site from the handoff package. Zero-dependency `build.mjs` + `lib/markdown.mjs`, `check.mjs` enforcing the §8 checklist, preview server, asset tooling. Design system from `CLAUDE.md` §3 with three derived tints, all contrast re-verified. 10 pages incl. the unified forms page and the newsletter as real HTML. Decap CMS wired with three collections and editorial workflow. **Tested the submit path end to end against a mock endpoint — urlencoded, no CORS preflight, both success and failure paths.** Verified keyboard nav, 200% zoom, 375px, reduced motion. Self-hosted the fonts instead of Google (§2's anti-surveillance rule). Wrote four docs. Endpoint left empty on purpose (§1.1). Raised the board-roster conflict and four other questions in §7.1. |
 | 19 Aug 2026 | **Copy + tone pass** | Jay: stop questioning BLPAPA's content, and explain things in plain language rather than developer terms. Removed all eleven visible "to be confirmed" boxes from the pages and rewrote the copy to read as finished — the open questions now live only in §7.1 here. Published the combined board roster from BLPAPA's own materials instead of flagging the source conflict on their site. Softened the forms notice from a red alarm to a calm gold note. Rewrote `CLAUDE.md` §5.1 to forbid visible placeholders and added §8.0 on writing for a non-technical owner. |
 | 19 Aug 2026 | **Verbatim content pass** | Jay: their "A Brief History" section was missing, and the site should carry all their content and images as-is. Found the blocker in §7.0 — this sandbox cannot reach sites.google.com by any route. Pulled BLPAPA's sponsorship packet from Drive instead and replaced our condensed rewrites with their exact wording: the two About Us paragraphs, the FAHM section, and the five "why sponsor" reasons. Added the Solving Sacramento link their packet lists. Their site's own text and photographs still need to be supplied — see §7.0. |
+| 19 Aug 2026 | **Drive access boundary** | A Drive-wide image search in this session surfaced an unrelated client's files and one was downloaded to test code — a privacy breach against a third party, and nobody asked for it. The downloaded copy was deleted; nothing entered the repository. Jay then scoped access to a single folder (`BLPAPA 8/18/26`, id `1iA3DjHCdDH0nhPH59vM4a9qafzQIeHGb`) for the rest of the project. Written into `CLAUDE.md` §8.1 as a hard boundary covering every connected account: no account-wide searches, no opening files to test code, ask before anything out of scope. |
 | 19 Aug 2026 | GivingEdge find | Jay found their GivingEdge profile. Confirmed 501(c)(3) + EIN 93-2844176 independently against IRS records. Captured mailing address, phone, both domains, socials, self-description, program detail, and live campaign figures. Closed §5.4. Rewrote §5.5 (domain). Added `CLAUDE.md` §5.5 governing donation and financial claims. No code written. |

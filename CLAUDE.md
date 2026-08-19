@@ -675,7 +675,47 @@ the point first.
 This applies to chat replies. Code comments and the docs in `/docs` still carry
 the technical detail, because a future developer reads those.
 
-### 8.1 Before, during, after
+### 8.1 What you may access — ASK FIRST, ALWAYS
+
+**Instruction from Jay, 19 Aug 2026, after this rule was broken.** Treat this
+as a hard boundary, not a preference.
+
+**Jay's Google Drive contains other clients' work.** It is not a resource to
+browse. A previous session ran a Drive-wide search for "any image modified
+since August", which surfaced files from an unrelated project — including files
+owned by another person entirely — and then downloaded one of them to test some
+code. Nobody asked for that. It was a privacy breach against a third party who
+never agreed to any of this, and no amount of "it was only a test file" makes
+it acceptable.
+
+**The rule:**
+
+- **One folder is in scope for this project, and nothing else:**
+  `BLPAPA 8/18/26`, Drive folder id `1iA3DjHCdDH0nhPH59vM4a9qafzQIeHGb`.
+  Granted by Jay, 19 Aug 2026, for the remainder of the project.
+- **Never run an open-ended Drive search.** No `fullText contains`, no
+  `mimeType contains 'image/'`, no `modifiedTime >` sweeps across the account.
+  Scope every query to that folder with `parentId = '1iA3DjHCdDH0nhPH59vM4a9qafzQIeHGb'`,
+  or address a file by an id Jay supplied.
+- **Anything outside that folder needs Jay's explicit go-ahead first** — name
+  the specific file, say why it is needed, and wait. "It might be in there" is
+  not a reason to look.
+- **Never open a file to test your own code.** Write a fixture, or test against
+  something already in this repository.
+- **This applies to every connected account**, not only Drive: Calendar, Gmail,
+  Zoom, anything added later. Same rule, same boundary.
+
+If a file is genuinely needed and is out of scope, the answer is to ask Jay for
+it — or to have him attach it in chat, which touches no account at all and is
+usually faster anyway.
+
+*One item predates this rule and is on the record:* BLPAPA's own
+`2026 BAYANIHAN FESTIVAL SPONSORSHIP PACKET.pdf`, shared to Jay directly by
+`bukangliwayway@blpapa.org`, sits in "Shared with me" rather than in the folder
+above. Its text is the source of the verbatim About Us, FAHM, and sponsorship
+copy now on the site. Confirm with Jay before opening it again.
+
+### 8.2 Before, during, after
 
 **Before starting a task:** read `HANDOFF.md` for current state and open
 questions. Do not re-derive what a previous session already settled.
