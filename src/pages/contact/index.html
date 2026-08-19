@@ -1,0 +1,140 @@
+<!--meta
+route: /contact/
+title: Contact
+description: Get in touch with BLPAPA in Elk Grove, California — by email, phone, or post. Questions about the festival, the dance program, volunteering, or sponsorship all welcome.
+script: forms
+-->
+
+<section class="page-hero">
+  <div class="motif-rays" aria-hidden="true"></div>
+  <div class="container page-hero__inner">
+    <span class="eyebrow">Contact</span>
+    <h1 class="page-hero__title">Say hello</h1>
+    <p class="page-hero__lead">
+      Questions about the festival, the dance program, volunteering, vending,
+      or sponsorship all end up with a real person. Ask anything.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="split split--wide-right">
+      <div>
+        <h2>Reach us directly</h2>
+        <dl class="detail-list">
+          <dt>Email</dt>
+          <dd><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></dd>
+          <dt>Phone</dt>
+          <dd><a href="tel:+12799011025">{{ site.contact.phone }}</a></dd>
+          <dt>Post</dt>
+          <dd>
+            {{ site.contact.mailingAddress.line1 }}<br>
+            {{ site.contact.mailingAddress.city }}, {{ site.contact.mailingAddress.state }} {{ site.contact.mailingAddress.zip }}
+          </dd>
+          <dt>Instagram</dt>
+          <dd>
+            <a href="{{ site.social.instagramOrg }}">@bukangliwayway.blpapa</a><br>
+            <a href="{{ site.social.instagramFestival }}">@bayanihanfestival</a>
+          </dd>
+          <dt>Facebook</dt>
+          <!-- PLACEHOLDER: the page exists but we have no direct URL. Once
+               BLPAPA supplies it, add it to content/site.json. -->
+          <dd><span class="placeholder">[Facebook link — awaiting URL from BLPAPA]</span></dd>
+        </dl>
+
+        <div class="callout" style="margin-top: 2rem;">
+          <p class="callout__title">Applying for something?</p>
+          <p>
+            Volunteering, performing, dancing, vending, and sponsorship each
+            have their own form, and using it gets you an answer faster than an
+            email will.
+          </p>
+          <p><a class="link-arrow" href="/get-involved/">Go to the applications</a></p>
+        </div>
+      </div>
+
+      <div id="forms" data-endpoint="{{ site.forms.unifiedEndpoint }}">
+        <div class="form-panel" id="contact">
+          <h2>Send us a message</h2>
+          <form class="form" data-intake="contact" novalidate>
+            <fieldset class="form__section">
+              <legend class="visually-hidden">Your message</legend>
+              <div class="form__grid">
+                <div class="field">
+                  <label class="field__label" for="c-name">Your name <span class="field__required">(required)</span></label>
+                  <input id="c-name" name="Name" type="text" autocomplete="name" required>
+                  <p class="field__error" id="c-name-error"></p>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="c-email">Email <span class="field__required">(required)</span></label>
+                  <input id="c-email" name="Email" type="email" autocomplete="email" required>
+                  <p class="field__error" id="c-email-error"></p>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="c-subject">What is this about? <span class="field__required">(required)</span></label>
+                  <select id="c-subject" name="Subject" required>
+                    <option value="">Choose one</option>
+                    <option>The Bayanihan Festival</option>
+                    <option>Joining the dance program</option>
+                    <option>Volunteering</option>
+                    <option>Vending or sponsorship</option>
+                    <option>Press or media</option>
+                    <option>Something else</option>
+                  </select>
+                  <p class="field__error" id="c-subject-error"></p>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="c-message">Your message <span class="field__required">(required)</span></label>
+                  <textarea id="c-message" name="Message" required></textarea>
+                  <p class="field__error" id="c-message-error"></p>
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="form__trap" aria-hidden="true">
+              <label for="c-website">Leave this field empty</label>
+              <input id="c-website" name="_website" type="text" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="form__actions">
+              <button class="button button--primary button--large" type="submit">Send message</button>
+            </div>
+            <div class="form__status" role="status" aria-live="polite"></div>
+          </form>
+
+          <div class="form-fallback">
+            <p class="form-fallback__title">Or just email us</p>
+            <p>
+              This form sends to the same place, but plenty of people would
+              rather write an email, and that is completely fine.
+            </p>
+            <p><a class="link-arrow" href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--cream">
+  <div class="container container--narrow">
+    <h2>Where we are</h2>
+    <p>
+      We are based in Elk Grove, California, and our flagship event is at
+      {{ event.venue }}, 9711 Big Horn Blvd, Elk Grove, CA 95757.
+    </p>
+    <p>
+      We have a dedicated rehearsal and community space as of May 2026. Its
+      address goes out to people taking part rather than being published here,
+      so <a href="/get-involved/#dancer">apply to the dance program</a> or
+      email us and we will send it to you.
+    </p>
+    <p>
+      Post reaches us at {{ site.contact.mailingAddress.line1 }},
+      {{ site.contact.mailingAddress.city }},
+      {{ site.contact.mailingAddress.state }}
+      {{ site.contact.mailingAddress.zip }}.
+    </p>
+  </div>
+</section>

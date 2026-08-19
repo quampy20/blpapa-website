@@ -1,0 +1,104 @@
+/* Footer — Heritage Navy field, white text, gold focus and hover.
+ * Style guide §07: "strong close, excellent contrast." White on navy is
+ * 14.74:1 and gold on navy is 10.07:1, so both are AAA. */
+
+.site-footer {
+  background: var(--blpapa-navy);
+  color: var(--blpapa-white);
+  padding-block: var(--space-2xl) var(--space-l);
+}
+
+.site-footer a {
+  color: var(--blpapa-white);
+  text-decoration-color: rgba(253, 253, 253, 0.45);
+}
+
+.site-footer a:hover {
+  color: var(--blpapa-gold);
+  text-decoration-color: currentColor;
+}
+
+.site-footer h2,
+.site-footer h3 {
+  color: var(--blpapa-white);
+}
+
+.site-footer__grid {
+  display: grid;
+  gap: var(--space-l);
+}
+
+@media (min-width: 46em) {
+  .site-footer__grid {
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: var(--space-xl);
+  }
+}
+
+.site-footer__brand img {
+  width: 130px;
+  margin-bottom: var(--space-s);
+}
+
+.site-footer__tagline {
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--blpapa-gold);
+  max-width: 30ch;
+}
+
+.site-footer__heading {
+  font-family: var(--font-heading);
+  font-size: var(--step-small);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blpapa-gold);
+  margin-bottom: var(--space-xs);
+}
+
+.site-footer__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-footer__list li {
+  margin-bottom: var(--space-3xs);
+}
+
+.site-footer__list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+}
+
+.site-footer__contact p {
+  margin-bottom: var(--space-2xs);
+  color: #E8EEEE; /* 12.6:1 on navy — softer than pure white, still AAA */
+}
+
+.site-footer__bottom {
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-m);
+  border-top: 1px solid rgba(253, 253, 253, 0.22);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s) var(--space-m);
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: var(--step-small);
+  color: #E8EEEE;
+}
+
+.site-footer__bottom p {
+  margin: 0;
+  max-width: 58ch;
+}
+
+/* 501(c)(3) line. The wording is fixed by CLAUDE.md §5.5 and verified against
+ * IRS records — do not extend it with impact or overhead claims. */
+.site-footer__legal {
+  font-size: var(--step-small);
+}

@@ -1,0 +1,35 @@
+<header class="site-header">
+  <div class="container site-header__inner">
+    <!-- Palette PNG rather than <picture> with WebP: these marks are flat
+         illustration, where a 256-colour PNG beats WebP outright (41 KB vs
+         58 KB at 600px). See tools/generate-logo-sizes.py. -->
+    <a class="site-header__logo site-header__logo--horizontal" href="/">
+      <img src="/assets/logo/horizontal-300.png"
+           srcset="/assets/logo/horizontal-300.png 1x, /assets/logo/horizontal-600.png 2x"
+           width="300" height="120" fetchpriority="high"
+           alt="BLPAPA — Bukang Liwayway Pilipino-Amerikano Pangarap Association. A sunrise over a mountain with community members in traditional Philippine dress.">
+    </a>
+    <!-- On a narrow phone the horizontal lockup cannot fit beside the menu
+         button without dropping under its ~280px floor. CLAUDE.md §3 names the
+         simplified sun-over-mountain mark for exactly this — "a very narrow
+         mobile header" — and it stays crisp where the full seal turns to mush. -->
+    <a class="site-header__logo site-header__logo--mark" href="/">
+      <img src="/assets/logo/mark-48.png"
+           srcset="/assets/logo/mark-48.png 1x, /assets/logo/mark-96.png 2x"
+           width="48" height="48" alt="BLPAPA home">
+    </a>
+
+    <div class="site-header__actions">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span class="nav-toggle__label">Menu</span>
+      </button>
+    </div>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul class="site-nav__list">
+            {{{ nav }}}
+      </ul>
+    </nav>
+  </div>
+</header>

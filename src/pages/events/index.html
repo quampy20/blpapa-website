@@ -1,0 +1,111 @@
+<!--meta
+route: /events/
+title: Events
+description: The Bayanihan Festival returns to District 56 in Elk Grove on Sunday 27 September 2026, 11am to 4pm, free to attend. Plus weekly dance rehearsals with our Performing Arts Program.
+-->
+
+<section class="page-hero">
+  <div class="motif-rays" aria-hidden="true"></div>
+  <div class="container page-hero__inner">
+    <span class="eyebrow">Events</span>
+    <h1 class="page-hero__title">What is coming up</h1>
+    <p class="page-hero__lead">
+      One big day a year, and the rehearsals that build up to it. Everyone is
+      welcome at both.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="feature-band">
+      <div class="feature-band__media">
+        <picture>
+          <source srcset="/assets/images/tinikling-bayanihan-festival.webp" type="image/webp">
+          <img src="/assets/images/tinikling-bayanihan-festival.jpg" width="755" height="504"
+               alt="Young dancers performing tinikling between bamboo poles at the Bayanihan Festival.">
+        </picture>
+      </div>
+      <div class="feature-band__panel">
+        <span class="eyebrow">Next up</span>
+        <h2>{{ event.name }} {{ event.dateYear }}</h2>
+        <p>
+          Our fourth annual festival. Folk dance, live music, a karaoke
+          contest, Filipino-owned businesses, and a street eats section that is
+          the real reason half the crowd shows up.
+        </p>
+        <dl class="detail-list" style="margin-bottom: 1.5rem;">
+          <dt>When</dt>
+          <dd>{{ event.dateLong }}, {{ event.timeRange }}</dd>
+          <dt>Where</dt>
+          <dd>{{ event.venue }}, 9711 Big Horn Blvd, {{ event.city }} 95757</dd>
+          <dt>Admission</dt>
+          <dd>{{ event.admission }}</dd>
+        </dl>
+        <p class="cluster">
+          <a class="button button--event" href="/events/bayanihan-festival/">Full festival details</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--cream">
+  <div class="container">
+    <div class="section__header">
+      <span class="eyebrow">Year round</span>
+      <hr class="motif-rule" aria-hidden="true">
+      <h2>Dance rehearsals</h2>
+    </div>
+
+    <div class="split split--wide-left">
+      <div class="prose">
+        <p>
+          Our Performing Arts Program rehearses in the run-up to the festival,
+          in Elk Grove. Rehearsals are how the festival performance gets built,
+          and they are open to people who have never danced before.
+        </p>
+        <p>
+          If you are new to BLPAPA and have never been to one of our classes,
+          your first class during a rehearsal period is free. Come and try it
+          before you decide anything.
+        </p>
+        <p class="cluster">
+          <a class="button button--primary" href="/get-involved/#dancer">Come dance with us</a>
+        </p>
+      </div>
+
+      <div class="callout">
+        <p class="callout__title">Rehearsal details</p>
+        <dl class="detail-list">
+          <dt>2026 season</dt>
+          <dd>Fridays, 5:00&ndash;6:30 PM, 10 July to 25 September</dd>
+          <dt>Where</dt>
+          <dd>Elk Grove, California. The address is sent to participants.</dd>
+          <dt>New dancers</dt>
+          <dd>First class free as a trial</dd>
+        </dl>
+        <!-- The rehearsal space address is deliberately not published: BLPAPA
+             has secured a space but no address is public (verified-facts.md).
+             Do not infer one. -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--narrow">
+    <h2>Other events</h2>
+    <p>
+      Beyond the festival and rehearsals, we do not publish a wider events
+      calendar yet.
+    </p>
+    <!-- PLACEHOLDER: HANDOFF.md §5.6 lists this as an open question — are
+         there smaller recurring events worth listing? Ask before adding any. -->
+    <p><span class="placeholder">[Additional events — to be confirmed with BLPAPA]</span></p>
+    <p>
+      The surest way to hear about something new is to
+      <a href="/contact/">get in touch</a> or follow us on Instagram.
+    </p>
+  </div>
+</section>

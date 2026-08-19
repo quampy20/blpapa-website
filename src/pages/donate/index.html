@@ -1,0 +1,167 @@
+<!--meta
+route: /donate/
+title: Support our mission
+description: Donate to BLPAPA through GivingEdge, the Sacramento Region Community Foundation's year-round giving platform. A registered 501(c)(3), EIN 93-2844176.
+-->
+
+<!-- Money copy is the most legally sensitive page on the site (CLAUDE.md §5.5).
+     What may be stated: 501(c)(3) status, the EIN, tax-deductibility in the
+     approved wording, and what a gift SUPPORTS.
+     What may not: dollar-per-outcome claims, overhead or percentage-to-program
+     ratios, fundraising totals as fixed values, matching-gift or deadline
+     urgency. No 990 has been filed, so there is no source for any of it, and
+     inventing one is legal exposure for BLPAPA rather than a design flourish.
+
+     There is exactly one giving path, GivingEdge, and no second donate button
+     anywhere on this site. A second one reliably lowers conversion and would
+     put receipting somewhere BLPAPA does not already trust. -->
+
+<section class="page-hero">
+  <div class="motif-rays" aria-hidden="true"></div>
+  <div class="container page-hero__inner">
+    <span class="eyebrow">Support our mission</span>
+    <h1 class="page-hero__title">Keep the festival free and the dancing going</h1>
+    <p class="page-hero__lead">
+      BLPAPA is a young organization doing something nobody else in Elk Grove
+      is doing. Giving is how the doors stay open and the gate stays free.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="split split--wide-left">
+      <div class="prose">
+        <h2>What your gift supports</h2>
+        <p>
+          We are deliberately not going to tell you that a particular amount
+          buys a particular thing. We would have to make that number up, and
+          this is not the place for made-up numbers. Here is what giving
+          actually goes towards.
+        </p>
+        <ul class="list-sampaguita">
+          <li>
+            <strong>A festival that costs nothing to walk into.</strong> Free
+            admission is a choice. It is paid for by vendors, sponsors, and
+            donors so that cost is never why a family stays home.
+          </li>
+          <li>
+            <strong>The Performing Arts Program.</strong> Rehearsal space,
+            teaching, and everything it takes to get a group of dancers from a
+            first class to a stage.
+          </li>
+          <li>
+            <strong>The Educational Program we are building.</strong> Tagalog
+            lessons, Filipino cuisine instruction, and native instrument
+            classes, planned as we grow.
+          </li>
+          <li>
+            <strong>A room of our own.</strong> As of May 2026 we have a
+            dedicated rehearsal and community space, which changes what an
+            organization our size can offer.
+          </li>
+        </ul>
+
+        <p class="cluster" style="margin-top: 2rem;">
+          <a class="button button--primary button--large" href="{{ site.giving.url }}">Give through GivingEdge</a>
+        </p>
+      </div>
+
+      <aside class="callout">
+        <p class="callout__title">Where your donation goes</p>
+        <p>
+          Donations are handled by <strong>GivingEdge</strong>, the year-round
+          giving platform run by the
+          <strong>{{ site.giving.platformOperator }}</strong>. It is the same
+          platform behind Big Day of Giving.
+        </p>
+        <p>
+          That means your receipt, your card details, and the compliance around
+          your gift are all handled by an established regional foundation
+          rather than by a non-profit founded in 2023. We think that is the
+          right way round.
+        </p>
+        <hr>
+        <p class="site-footer__legal" style="font-size: 0.9375rem;">
+          {{ site.giving.taxLine }}
+        </p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section section--cream">
+  <div class="container">
+    <div class="section__header">
+      <span class="eyebrow">Trust</span>
+      <hr class="motif-rule" aria-hidden="true">
+      <h2>Who you are giving to</h2>
+    </div>
+
+    <div class="grid grid--3">
+      <article class="card card--green">
+        <h3 class="card__title">A registered charity</h3>
+        <p class="card__body">
+          BLPAPA has been a 501(c)(3) public charity since April 2024, under
+          EIN {{ site.giving.ein }}. You can look us up.
+        </p>
+      </article>
+      <article class="card card--teal">
+        <h3 class="card__title">A real address</h3>
+        <p class="card__body">
+          {{ site.contact.mailingAddress.line1 }},
+          {{ site.contact.mailingAddress.city }},
+          {{ site.contact.mailingAddress.state }}
+          {{ site.contact.mailingAddress.zip }}. Run by people who live here.
+        </p>
+      </article>
+      <article class="card card--gold">
+        <h3 class="card__title">Neighbours already have</h3>
+        <p class="card__body">
+          As of our last update, {{ site.giving.donorCount }} people had given
+          through our GivingEdge profile. The current figure is on the profile
+          itself.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--narrow">
+    <h2>Other ways to support us</h2>
+    <p>
+      Money is not the only thing that keeps this running, and for a lot of
+      people it is not the easiest thing to give.
+    </p>
+    <ul class="list-check">
+      <li><a href="/get-involved/#volunteer">Volunteer a few hours</a> on festival day.</li>
+      <li><a href="/get-involved/#sponsor">Sponsor the festival</a> if you run a business or organization.</li>
+      <li><a href="/get-involved/#vendor">Take a vendor space</a> and bring your food or your craft.</li>
+      <li><a href="/events/bayanihan-festival/">Just turn up</a>, and bring people with you.</li>
+    </ul>
+
+    <div class="callout callout--gold" style="margin-top: 2rem;">
+      <p class="callout__title">Big Day of Giving</p>
+      <p>
+        GivingEdge accepts donations all year, not only on the giving day. If
+        you would rather give during Big Day of Giving, the same profile link
+        works then too.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--navy">
+  <div class="container container--narrow">
+    <h2>Ready when you are</h2>
+    <p class="lead" style="color: #E8EEEE;">
+      Every gift goes through our GivingEdge profile, whatever the size and
+      whatever time of year it is.
+    </p>
+    <p class="cluster">
+      <a class="button button--secondary button--large" href="{{ site.giving.url }}">Give through GivingEdge</a>
+      <a class="button button--outline" href="/contact/">Ask us a question first</a>
+    </p>
+  </div>
+</section>

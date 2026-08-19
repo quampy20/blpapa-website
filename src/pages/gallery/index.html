@@ -1,0 +1,122 @@
+<!--meta
+route: /gallery/
+title: Gallery
+description: Photographs and video from the Bayanihan Festival, including KCRA's television coverage of the 2024 event.
+-->
+
+<section class="page-hero">
+  <div class="motif-rays" aria-hidden="true"></div>
+  <div class="container page-hero__inner">
+    <span class="eyebrow">Gallery</span>
+    <h1 class="page-hero__title">What the day actually looks like</h1>
+    <p class="page-hero__lead">
+      Photographs and video from the Bayanihan Festival. The best argument for
+      coming is seeing it.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Photographs</h2>
+
+    <div class="gallery">
+      <figure class="gallery__item">
+        <picture>
+          <source srcset="/assets/images/tinikling-bayanihan-festival.webp" type="image/webp">
+          <img src="/assets/images/tinikling-bayanihan-festival.jpg" width="755" height="504" loading="lazy"
+               alt="Young dancers in traditional dress performing tinikling, stepping between bamboo poles clapped together in rhythm, in front of a festival crowd.">
+        </picture>
+        <figcaption>
+          Youth performing <em>tinikling</em> at the Bayanihan Festival.
+        </figcaption>
+      </figure>
+    </div>
+
+    <!-- Only one photograph has been cleared and prepared so far. BLPAPA's own
+         published images from their website, Instagram (@bayanihanfestival),
+         and the sponsorship packet are approved for reuse (CLAUDE.md §3) —
+         they simply have not been extracted and optimized yet. Adding a grid
+         of stock photography instead would be exactly the kind of generic
+         tropical filler the style guide warns against. -->
+    <div class="callout" style="margin-top: 2rem;">
+      <p class="callout__title">More photographs are on the way</p>
+      <p>
+        We have three years of festival photography to bring across from our
+        Instagram and our archives.
+        <span class="placeholder">[Additional festival photographs — to be selected with BLPAPA]</span>
+      </p>
+      <p>
+        In the meantime, the fullest picture is on Instagram at
+        <a href="{{ site.social.instagramFestival }}">@bayanihanfestival</a>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--cream">
+  <div class="container">
+    <div class="section__header">
+      <span class="eyebrow">On television</span>
+      <hr class="motif-rule" aria-hidden="true">
+      <h2>KCRA covers the festival</h2>
+      <p class="lead">
+        KCRA covered the 2024 Bayanihan Festival. The segment is on YouTube.
+      </p>
+    </div>
+
+    <!-- Linked out rather than embedded. A YouTube iframe loads their tracking
+         and ads into the page, which CLAUDE.md §2 bans, and it would be the
+         single heaviest thing on the site. -->
+    <a class="video-link" href="https://www.youtube.com/watch?v=Fe-r1JNRCqw">
+      <span class="video-link__play" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false"><path d="M8 5v14l11-7z"/></svg>
+      </span>
+      <span>
+        <span class="video-link__title">KCRA coverage of the 2024 Bayanihan Festival</span>
+        <span class="video-link__meta">Watch on YouTube — opens in a new tab on most browsers</span>
+      </span>
+    </a>
+
+    <p style="margin-top: 1.5rem;">
+      <!-- The URL came from BLPAPA's own sponsorship material. Confirm it is
+           the intended segment before launch — site.json flags it. -->
+      <span class="placeholder">[Verify this is the correct KCRA segment before launch]</span>
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <span class="eyebrow">In print</span>
+      <hr class="motif-rule" aria-hidden="true">
+      <h2>Written coverage</h2>
+    </div>
+    <ul class="press-strip">
+      <li class="press-strip__item">
+        <span class="press-strip__outlet">Sacramento News &amp; Review</span>
+        <span class="press-strip__meta">17 October 2025</span>
+        <a class="link-arrow" href="https://sacramento.newsreview.com/2025/10/17/elk-groves-bayanihan-festival-brings-people-together-during-filipino-american-history-month/">Read the article</a>
+      </li>
+      <li class="press-strip__item">
+        <span class="press-strip__outlet">New Times Magazine</span>
+        <span class="press-strip__meta">Solving Sacramento, 2025</span>
+        <a class="link-arrow" href="https://newtimesmagazine.com/solvingsacramento/bayanihan-festival-in-sacramento-celebrates-local-filipino-culture/">Read the article</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section--navy">
+  <div class="container container--narrow">
+    <h2>Be in next year's photographs</h2>
+    <p class="lead" style="color: #E8EEEE;">
+      The festival is {{ event.dateLong }}, and it is free.
+    </p>
+    <p class="cluster">
+      <a class="button button--secondary" href="/events/bayanihan-festival/">Festival details</a>
+      <a class="button button--outline" href="/get-involved/">Take part</a>
+    </p>
+  </div>
+</section>

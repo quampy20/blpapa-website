@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }} — BLPAPA</title>
+<meta name="description" content="{{ description }}">
+<link rel="canonical" href="{{ canonical }}">
+
+<!-- Fonts are self-hosted, not loaded from Google. CLAUDE.md §2 bans shipping
+     third-party surveillance into a site serving a specific ethnic community,
+     and a Google Fonts request reports every visitor to Google before a word
+     is drawn. Regenerate with tools/fetch-fonts.py.
+     Preloading the two faces above the fold: body regular and heading bold. -->
+<link rel="preload" href="/assets/fonts/noto-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/montserrat-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/styles/site.css">
+
+<!-- The simplified sun-over-mountain mark, not the full seal: the seal is mud
+     below 64px and this stays readable as a sunrise at 16 (CLAUDE.md §3). -->
+<link rel="icon" href="/assets/logo/mark-32.png" sizes="32x32">
+<link rel="icon" href="/assets/logo/mark-16.png" sizes="16x16">
+<link rel="apple-touch-icon" href="/assets/logo/mark-180.png">
+<meta name="theme-color" content="#042B34">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bukang Liwayway Pilipino-Amerikano Pangarap Asosasyon">
+<meta property="og:title" content="{{ title }} — BLPAPA">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:url" content="{{ canonical }}">
+<meta property="og:image" content="{{ ogImage }}">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="{{ bodyClass }}">
+<a class="skip-link" href="#main">Skip to main content</a>
+{{> header }}
+<main id="main" tabindex="-1">
+{{{ content }}}
+</main>
+{{> footer }}
+<script type="module" src="/scripts/nav.js"></script>
+{{{ pageScripts }}}
+</body>
+</html>

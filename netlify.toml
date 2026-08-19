@@ -1,0 +1,37 @@
+[build]
+  command = "node build.mjs"
+  publish = "dist"
+
+# Old Google Sites paths. Mapped so links printed on flyers, in the newsletter,
+# and on the GivingEdge profile keep working after cutover — HANDOFF.md §5.5.
+[[redirects]]
+  from = "/home"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/about-us"
+  to = "/about/"
+  status = 301
+
+[[redirects]]
+  from = "/team"
+  to = "/about/"
+  status = 301
+
+[[redirects]]
+  from = "/events/bayanihan-festival"
+  to = "/events/bayanihan-festival/"
+  status = 301
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

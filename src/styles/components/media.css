@@ -1,0 +1,203 @@
+/* Photography, gallery, and embedded video.
+ *
+ * The rule that shapes all of this (CLAUDE.md §3): never set text directly
+ * over festival photography. Where a photo and a headline meet, there is
+ * either a navy scrim or a solid panel between them. */
+
+.figure {
+  margin: 0 0 var(--space-m);
+}
+
+.figure img {
+  width: 100%;
+  border-radius: var(--radius-m);
+}
+
+.figure figcaption {
+  margin-top: var(--space-2xs);
+  font-size: var(--step-small);
+  color: var(--color-text-muted);
+  max-width: 62ch;
+}
+
+.gallery {
+  display: grid;
+  gap: var(--space-s);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+}
+
+.gallery__item {
+  margin: 0;
+  background: var(--blpapa-white);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.gallery__item img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.gallery__item figcaption {
+  padding: var(--space-xs);
+  font-size: var(--step-small);
+  color: var(--color-text-muted);
+}
+
+/* Video. Embedded with a click-to-load facade would need third-party JS on
+ * play; a plain link out to YouTube keeps the page free of their SDK, which
+ * CLAUDE.md §2 bans. The thumbnail below is our own layout, not their embed. */
+.video-link {
+  display: grid;
+  gap: var(--space-s);
+  align-items: center;
+  padding: var(--space-m);
+  background: var(--blpapa-white);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-m);
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--shadow-card);
+}
+
+@media (min-width: 40em) {
+  .video-link {
+    grid-template-columns: auto 1fr;
+    gap: var(--space-m);
+  }
+}
+
+.video-link:hover {
+  color: inherit;
+  box-shadow: var(--shadow-lift);
+}
+
+.video-link:hover .video-link__title {
+  color: var(--blpapa-teal);
+}
+
+.video-link__play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--blpapa-red-accessible);
+  color: var(--blpapa-white);
+  flex-shrink: 0;
+}
+
+.video-link__play svg {
+  width: 26px;
+  height: 26px;
+  fill: currentColor;
+}
+
+.video-link__title {
+  font-family: var(--font-heading);
+  font-size: var(--step-h3);
+  font-weight: 700;
+  color: var(--blpapa-navy);
+  margin-bottom: var(--space-3xs);
+}
+
+.video-link__meta {
+  font-size: var(--step-small);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* Feature band: photo on one side, solid panel on the other. This is the
+ * approved way to put a headline next to photography. */
+.feature-band {
+  display: grid;
+  gap: 0;
+  background: var(--blpapa-navy);
+  border-radius: var(--radius-l);
+  overflow: hidden;
+}
+
+@media (min-width: 52em) {
+  .feature-band {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.feature-band__media img {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  object-fit: cover;
+}
+
+.feature-band__panel {
+  padding: var(--space-l);
+  color: var(--blpapa-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 52em) {
+  .feature-band__panel {
+    padding: var(--space-xl);
+  }
+}
+
+.feature-band__panel h2,
+.feature-band__panel h3 {
+  color: var(--blpapa-white);
+}
+
+.feature-band__panel p {
+  color: #E8EEEE;
+}
+
+.feature-band__panel a:not(.button) {
+  color: var(--blpapa-gold);
+}
+
+/* Press strip — publication names with dates, linking out. Names are set in
+ * type rather than logos: we have no licensed logo files and inventing an
+ * approximation would misrepresent the outlets. */
+.press-strip {
+  display: grid;
+  gap: var(--space-s);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 40em) {
+  .press-strip {
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  }
+}
+
+.press-strip__item {
+  padding: var(--space-m);
+  background: var(--blpapa-white);
+  border-radius: var(--radius-m);
+  border-top: 4px solid var(--blpapa-gold);
+  box-shadow: var(--shadow-card);
+  max-width: none;
+}
+
+.press-strip__outlet {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--blpapa-navy);
+  margin-bottom: var(--space-3xs);
+}
+
+.press-strip__meta {
+  display: block;
+  font-size: var(--step-small);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2xs);
+}

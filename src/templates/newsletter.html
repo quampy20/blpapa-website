@@ -1,0 +1,67 @@
+<!-- One newsletter issue, rendered from content/newsletters/*.md.
+     This template is the whole fix for the current site's biggest failure: the
+     newsletter was published as scanned images, which meant it could not be
+     read on a phone, searched, or heard by a screen reader (CLAUDE.md §5.3). -->
+
+<section class="page-hero page-hero--white">
+  <div class="container container--narrow page-hero__inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/culture/">Culture</a></li>
+        <li aria-current="page">{{ edition }}</li>
+      </ol>
+    </nav>
+    <span class="eyebrow">Newsletter &middot; {{ edition }}</span>
+    <h1 class="page-hero__title">{{ title }}</h1>
+    <p class="page-hero__lead">{{ summary }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <article class="article">
+      <div class="article__meta">
+        <span class="article__byline">{{ author }}</span>
+        <span>{{ author_role }}</span>
+        <span>{{ period }}</span>
+      </div>
+
+      <div class="issue-header">
+        <span class="issue-header__label">About this issue</span>
+        <p>
+          Transcribed from the printed newsletter so it can be read on any
+          device, searched, and heard aloud. The founder's words are reproduced
+          exactly as printed.
+        </p>
+      </div>
+
+      <div class="article__body">
+        {{{ article }}}
+      </div>
+
+      <div class="article__signoff">
+        <p>
+          <a class="link-arrow" href="/culture/">Back to Culture</a>
+        </p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section section--teal-tint">
+  <div class="container container--narrow">
+    <h2>Want the next one?</h2>
+    <p>
+      We do not run a mailing list yet.
+      <!-- PLACEHOLDER: HANDOFF.md §5.6 — the brief asks for newsletter signup
+           but no mailing list platform has been chosen. Do not add a signup
+           box that goes nowhere. -->
+      <span class="placeholder">[Newsletter signup — mailing list platform to be chosen with BLPAPA]</span>
+    </p>
+    <p>
+      In the meantime, <a href="/contact/">get in touch</a> or follow us on
+      Instagram and we will make sure you hear about it.
+    </p>
+  </div>
+</section>

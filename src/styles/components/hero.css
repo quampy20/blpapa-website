@@ -1,0 +1,166 @@
+/* Hero — cream field, navy headline, one gold/red accent, one community image.
+ * Style guide §07. The sequence in HANDOFF.md §4 is explicit that the hero
+ * carries ONE primary action; the CSS supports a second only as an outline
+ * button so the hierarchy stays obvious. */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--blpapa-cream);
+  padding-block: clamp(2.5rem, 1.4rem + 4.4vw, 5rem);
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: var(--space-l);
+  align-items: center;
+}
+
+@media (min-width: 56em) {
+  .hero__inner {
+    grid-template-columns: 1.05fr 1fr;
+    gap: var(--space-xl);
+  }
+}
+
+.hero__title {
+  font-size: var(--step-hero);
+  font-weight: 700;
+  color: var(--blpapa-navy);
+  margin-bottom: var(--space-s);
+}
+
+.hero__lead {
+  font-size: var(--step-lead);
+  line-height: 1.5;
+  color: var(--blpapa-ink);
+  max-width: 46ch;
+  margin-bottom: var(--space-m);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+  margin-bottom: var(--space-m);
+}
+
+.hero__figure {
+  position: relative;
+  margin: 0;
+}
+
+.hero__figure img {
+  width: 100%;
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-lift);
+}
+
+.hero__figure figcaption {
+  margin-top: var(--space-2xs);
+  font-size: var(--step-small);
+  color: var(--color-text-muted);
+  max-width: 46ch;
+}
+
+/* The next-event stamp that sits on the hero. Gold on navy is 10.07:1. */
+.event-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-2xs) var(--space-s) var(--space-2xs) var(--space-2xs);
+  background: var(--blpapa-navy);
+  color: var(--blpapa-white);
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  font-size: var(--step-small);
+  margin-bottom: var(--space-m);
+  max-width: 100%;
+}
+
+.event-stamp:hover {
+  background: #063b47;
+  color: var(--blpapa-white);
+}
+
+.event-stamp__date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 46px;
+  padding: var(--space-3xs) var(--space-2xs);
+  background: var(--blpapa-gold);
+  color: var(--blpapa-navy);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  line-height: 1;
+}
+
+.event-stamp__month {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.event-stamp__day {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.event-stamp__text {
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+/* Page hero for interior pages — quieter than the home hero. */
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--blpapa-cream);
+  padding-block: clamp(2rem, 1.3rem + 3vw, 3.5rem);
+}
+
+.page-hero--white {
+  background: var(--blpapa-white);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.page-hero__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.page-hero__title {
+  margin-bottom: var(--space-xs);
+}
+
+.page-hero__lead {
+  font-size: var(--step-lead);
+  line-height: 1.5;
+  max-width: 58ch;
+  margin-bottom: 0;
+}
+
+/* Breadcrumb — a real nav landmark, not a decorative row of slashes. */
+.breadcrumb {
+  margin-bottom: var(--space-s);
+  font-size: var(--step-small);
+}
+
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3xs) var(--space-2xs);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumb li + li::before {
+  content: '/';
+  margin-right: var(--space-2xs);
+  color: var(--color-text-muted);
+}

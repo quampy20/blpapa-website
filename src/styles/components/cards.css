@@ -1,0 +1,212 @@
+/* Cards — white surfaces, navy titles, green and teal category accents.
+ * Style guide §07: "organizes without over-coloring." A card gets at most one
+ * accent colour; a card using three is the 60/25/10/5 rule breaking. */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--space-m);
+  background: var(--blpapa-white);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-card);
+}
+
+.section--cream .card,
+.section--gray .card,
+.section--teal-tint .card {
+  border-color: transparent;
+}
+
+.card > :last-child {
+  margin-bottom: 0;
+}
+
+.card__title {
+  font-size: var(--step-h3);
+  margin-bottom: var(--space-2xs);
+}
+
+.card__body {
+  margin-bottom: var(--space-s);
+}
+
+.card__footer {
+  margin-top: auto;
+  padding-top: var(--space-s);
+}
+
+/* Category accent — a top edge, plus a labelled tag, so the category never
+ * rests on colour alone (CLAUDE.md §6). */
+.card--green { border-top: 4px solid var(--blpapa-green); }
+.card--teal { border-top: 4px solid var(--blpapa-teal); }
+.card--gold { border-top: 4px solid var(--blpapa-gold); }
+.card--red { border-top: 4px solid var(--blpapa-red-accessible); }
+
+.card--link {
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.card--link:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lift);
+  color: inherit;
+}
+
+.card--link:hover .card__title {
+  color: var(--blpapa-teal);
+}
+
+/* Tag / status pill. Text always says what the colour means. */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.25em 0.7em;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.tag--active {
+  background: #E4EFE7;
+  color: var(--blpapa-green); /* 7.49:1 */
+}
+
+.tag--planned {
+  background: var(--surface-teal-tint);
+  color: var(--blpapa-teal); /* 7.21:1 */
+}
+
+.tag--free {
+  background: var(--blpapa-gold);
+  color: var(--blpapa-navy); /* 10.07:1 */
+}
+
+.tag--deadline {
+  background: #FCEDEA;
+  color: var(--blpapa-red-accessible); /* 6.06:1 */
+}
+
+/* Statistic block. Numbers here are verified facts only (CLAUDE.md §5.1) —
+ * inaugural festival attendance and vendor counts, nothing inferred. */
+.stat {
+  text-align: center;
+}
+
+.stat__value {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 1.5rem + 2.2vw, 3rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--blpapa-navy);
+}
+
+.section--navy .stat__value {
+  color: var(--blpapa-gold);
+}
+
+.stat__label {
+  display: block;
+  margin-top: var(--space-2xs);
+  font-size: var(--step-small);
+  color: var(--color-text-muted);
+}
+
+.section--navy .stat__label {
+  color: #E8EEEE;
+}
+
+/* Person card for the board roster. No bios exist and none may be written
+ * (verified-facts.md), so this is name plus role, treated with weight. */
+.person {
+  padding: var(--space-m);
+  background: var(--blpapa-white);
+  border-radius: var(--radius-m);
+  border-left: 4px solid var(--blpapa-gold);
+  box-shadow: var(--shadow-card);
+}
+
+.person__name {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--blpapa-navy);
+  margin-bottom: var(--space-3xs);
+}
+
+.person__role {
+  font-size: var(--step-small);
+  color: var(--blpapa-teal);
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Callout — a bordered aside for context that is important but not a warning. */
+.callout {
+  padding: var(--space-m);
+  background: var(--surface-teal-tint);
+  border-left: 5px solid var(--blpapa-teal);
+  border-radius: 0 var(--radius-m) var(--radius-m) 0;
+}
+
+.callout > :last-child {
+  margin-bottom: 0;
+}
+
+.callout__title {
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--blpapa-navy);
+  margin-bottom: var(--space-2xs);
+}
+
+.callout--gold {
+  background: #FEF6D5;
+  border-left-color: var(--blpapa-gold);
+}
+
+.callout--red {
+  background: #FCEDEA;
+  border-left-color: var(--blpapa-red-accessible);
+}
+
+/* Definition-style detail list used for event facts and contact blocks. */
+.detail-list {
+  margin: 0;
+  display: grid;
+  gap: var(--space-xs);
+}
+
+@media (min-width: 34em) {
+  .detail-list {
+    grid-template-columns: max-content 1fr;
+    gap: var(--space-2xs) var(--space-m);
+  }
+}
+
+.detail-list dt {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--blpapa-teal);
+  font-size: var(--step-small);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.detail-list dd {
+  margin: 0 0 var(--space-2xs);
+}
+
+@media (min-width: 34em) {
+  .detail-list dd { margin-bottom: 0; }
+  .detail-list dt { padding-top: 0.15em; }
+}

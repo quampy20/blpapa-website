@@ -1,0 +1,18 @@
+{
+  "name": "blpapa-website",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Website for Bukang Liwayway Pilipino-Amerikano Pangarap Asosasyon (BLPAPA)",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "serve": "node build.mjs && node --run serve:only",
+    "serve:only": "node server.mjs",
+    "check": "node build.mjs && node check.mjs"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

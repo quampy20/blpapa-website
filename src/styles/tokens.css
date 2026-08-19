@@ -1,0 +1,89 @@
+/* Design tokens — transcribed from BLPAPABrandandWebsiteStyleGuide.pdf via
+ * CLAUDE.md §3. The palette is the organization's approved brand system, not a
+ * value sampled from the logo. Do not "correct" these against the artwork:
+ * the mark's own colours sit a few units off the brand values on purpose.
+ *
+ * Contrast ratios in the comments are verified — every pair used for text in
+ * this stylesheet is checked by `npm run check`. */
+
+:root {
+  /* Primary palette */
+  --blpapa-navy:           #042B34; /* Heritage Navy — primary anchor */
+  --blpapa-red:            #D5230C; /* Bayanihan Red — LOGO + large display only */
+  --blpapa-red-accessible: #B21A09; /* Deep Red — every small red UI element */
+  --blpapa-gold:           #FDCF06; /* Dawn Gold — accents, never text */
+  --blpapa-green:          #1A552A; /* Mountain Green — programs, nature */
+  --blpapa-teal:           #125657; /* River Teal — links, subheadings */
+  --blpapa-cream:          #F0E8D1; /* Warm Cream — alternating sections */
+
+  /* Neutrals and secondary accent */
+  --blpapa-white:          #FDFDFD; /* Cloud White — default background */
+  --blpapa-ink:            #0E1C20; /* Charcoal — body text */
+  --blpapa-orange:         #EB620F; /* Sunrise Orange — sparing accent */
+  --blpapa-gray:           #F3F5F4; /* Soft Gray — subtle fields */
+
+  /* Derived surfaces. Tints only — no new hues enter the system here.
+   * The teal tint is the style guide's "light teal" newsletter field (§07);
+   * navy on it computes to 12.85:1. */
+  --surface-teal-tint:     #E7EFEF;
+  --surface-cream-deep:    #E7DCBC; /* cream, one step down, for edges and rules */
+  --border-subtle:         #D8DEDD;
+  --border-strong:         #042B3433;
+
+  /* Semantic roles. Components reference these, not the raw brand names, so a
+   * role can be re-pointed in one place. */
+  --color-text:            var(--blpapa-ink);
+  --color-text-muted:      #3B4A4E; /* 9.07:1 on white — metadata, captions */
+  --color-heading:         var(--blpapa-navy);
+  --color-link:            var(--blpapa-teal);
+  --color-link-hover:      var(--blpapa-red-accessible);
+  --color-bg:              var(--blpapa-white);
+  --color-focus:           var(--blpapa-red-accessible);
+
+  /* Typography — Montserrat headings, Noto Sans body (CLAUDE.md §3).
+   * If the webfonts fail, Arial carries both and the weight hierarchy holds. */
+  --font-heading: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Fluid ramp. The style guide's table is the desktop end, not a fixed spec.
+   * Body floors at 17px — many readers here are older community members. */
+  --step-hero:  clamp(2.125rem, 1.35rem + 3.4vw, 4rem);     /* 34 → 64 */
+  --step-h1:    clamp(2rem, 1.55rem + 1.95vw, 3rem);        /* 32 → 48 */
+  --step-h2:    clamp(1.5rem, 1.2rem + 1.3vw, 2.25rem);     /* 24 → 36 */
+  --step-h3:    clamp(1.25rem, 1.14rem + 0.48vw, 1.5rem);   /* 20 → 24 */
+  --step-body:  clamp(1.0625rem, 1.03rem + 0.16vw, 1.125rem); /* 17 → 18 */
+  --step-lead:  clamp(1.1875rem, 1.09rem + 0.4vw, 1.375rem); /* 19 → 22 */
+  --step-small: 0.9375rem; /* 15 */
+
+  --leading-tight: 1.15;
+  --leading-heading: 1.22;
+  --leading-body: 1.65;
+
+  /* Spacing */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs:  0.75rem;
+  --space-s:   1rem;
+  --space-m:   1.5rem;
+  --space-l:   2rem;
+  --space-xl:  3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  /* Section rhythm — generous by instruction: "when in doubt, add space". */
+  --section-pad: clamp(3rem, 1.6rem + 5.6vw, 6rem);
+
+  --measure: 68ch;      /* reading width */
+  --container: 72rem;   /* 1152px */
+  --container-narrow: 48rem;
+
+  --radius-s: 4px;
+  --radius-m: 10px;
+  --radius-l: 18px;
+  --radius-pill: 999px;
+
+  --shadow-card: 0 1px 2px rgba(4, 43, 52, 0.06), 0 6px 20px rgba(4, 43, 52, 0.07);
+  --shadow-lift: 0 2px 6px rgba(4, 43, 52, 0.09), 0 14px 34px rgba(4, 43, 52, 0.12);
+
+  --tap-target: 44px; /* CLAUDE.md §3 layout — phones are most of this traffic */
+}

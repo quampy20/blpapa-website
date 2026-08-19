@@ -1,0 +1,51 @@
+<hr class="motif-weave" aria-hidden="true">
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <img src="/assets/logo/seal-130.png"
+             srcset="/assets/logo/seal-130.png 1x, /assets/logo/seal-260.png 2x"
+             width="130" height="135" loading="lazy" alt="">
+        <p class="site-footer__tagline">Celebrate Filipino culture. Connect generations. Carry the legacy forward.</p>
+      </div>
+
+      <div>
+        <h2 class="site-footer__heading">Explore</h2>
+        <ul class="site-footer__list">
+          <li><a href="/about/">About us</a></li>
+          <li><a href="/events/">Events</a></li>
+          <li><a href="/get-involved/">Get involved</a></li>
+          <li><a href="/culture/">Culture &amp; newsletter</a></li>
+          <li><a href="/gallery/">Gallery</a></li>
+          <li><a href="/donate/">Support our mission</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__contact">
+        <h2 class="site-footer__heading">Reach us</h2>
+        <p><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></p>
+        <!-- Phone and mailing address are published on BLPAPA's own GivingEdge
+             profile. Confirm with the org before launch that they want both on
+             the website too — site.json flags the phone. -->
+        <p><a href="tel:+12799011025">{{ site.contact.phone }}</a></p>
+        <p>{{ site.contact.mailingAddress.line1 }}<br>
+           {{ site.contact.mailingAddress.city }}, {{ site.contact.mailingAddress.state }} {{ site.contact.mailingAddress.zip }}</p>
+
+        <h2 class="site-footer__heading" style="margin-top: 1.5rem;">Follow along</h2>
+        <ul class="site-footer__list">
+          <li><a href="{{ site.social.instagramOrg }}">Instagram — @bukangliwayway.blpapa</a></li>
+          <li><a href="{{ site.social.instagramFestival }}">Instagram — @bayanihanfestival</a></li>
+          <!-- PLACEHOLDER: the Facebook page exists but we have no direct URL.
+               Ask BLPAPA for it, then add it to content/site.json. -->
+          <li><span class="placeholder">[Facebook link — awaiting URL from BLPAPA]</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p class="site-footer__legal">{{ site.giving.taxLine }}</p>
+      <p>&copy; {{ year }} {{ site.org.name }}. Elk Grove, California.</p>
+    </div>
+  </div>
+</footer>

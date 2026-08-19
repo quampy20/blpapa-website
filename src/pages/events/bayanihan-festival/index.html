@@ -1,0 +1,377 @@
+<!--meta
+route: /events/bayanihan-festival/
+nav: /events/
+title: Bayanihan Festival
+description: The 4th annual Bayanihan Festival — Sunday 27 September 2026, 11am to 4pm at District 56, Elk Grove. Free admission. Apply to volunteer, perform, dance, vend, or sponsor.
+-->
+
+<section class="page-hero">
+  <div class="motif-rays" aria-hidden="true"></div>
+  <div class="container page-hero__inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/events/">Events</a></li>
+        <li aria-current="page">Bayanihan Festival</li>
+      </ol>
+    </nav>
+    <span class="eyebrow">4th annual &middot; {{ event.dateYear }}</span>
+    <h1 class="page-hero__title">The Bayanihan Festival</h1>
+    <p class="page-hero__lead">
+      <em>Bayanihan</em> is the old image of a whole neighbourhood lifting a
+      house onto their shoulders and carrying it down the road together. One
+      day a year we do the modern version of that in Elk Grove.
+    </p>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="container">
+    <div class="split split--wide-left">
+      <div>
+        <picture>
+          <source srcset="/assets/images/tinikling-bayanihan-festival.webp" type="image/webp">
+          <img src="/assets/images/tinikling-bayanihan-festival.jpg" width="755" height="504"
+               style="border-radius: 18px;"
+               alt="Young dancers performing tinikling, stepping between bamboo poles clapped in rhythm, in front of a festival audience.">
+        </picture>
+      </div>
+      <div>
+        <dl class="detail-list">
+          <dt>Date</dt>
+          <dd>{{ event.dateLong }}</dd>
+          <dt>Time</dt>
+          <dd>{{ event.timeRange }}</dd>
+          <dt>Venue</dt>
+          <dd>{{ event.venue }}<br>9711 Big Horn Blvd<br>{{ event.city }} 95757</dd>
+          <dt>Admission</dt>
+          <dd><span class="tag tag--free">Free</span> &mdash; funded by our vendors and sponsors</dd>
+        </dl>
+        <p class="cluster" style="margin-top: 1.5rem;">
+          <a class="button button--event button--large" href="/get-involved/">Apply to take part</a>
+        </p>
+        <p style="margin-top: 1rem;">
+          <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&amp;query=District+56%2C+9711+Big+Horn+Blvd%2C+Elk+Grove%2C+CA+95757">Find District 56 on a map</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--cream">
+  <div class="container">
+    <div class="section__header">
+      <span class="eyebrow">What the day is like</span>
+      <hr class="motif-rule" aria-hidden="true">
+      <h2>A whole day of it, and none of it costs anything to walk into</h2>
+    </div>
+
+    <div class="grid grid--3">
+      <article class="card card--red">
+        <h3 class="card__title">On the stage</h3>
+        <p class="card__body">
+          Traditional folk dance, live music, and local performers. Our own
+          dancers perform alongside invited artists. Our inaugural year brought
+          Jules Aurora and Jamieboy to the stage.
+        </p>
+      </article>
+      <article class="card card--gold">
+        <h3 class="card__title">Street eats</h3>
+        <p class="card__body">
+          Filipinos speak in the language of food. The food truck and food tent
+          section is where a good part of the day happens.
+        </p>
+      </article>
+      <article class="card card--teal">
+        <h3 class="card__title">Karaoke contest</h3>
+        <p class="card__body">
+          There is a karaoke contest. There was never any question that there
+          would be a karaoke contest.
+        </p>
+      </article>
+    </div>
+
+    <div class="grid grid--3" style="margin-top: 3rem;">
+      <div class="stat">
+        <span class="stat__value">5,000+</span>
+        <span class="stat__label">people at our inaugural festival, 8 October 2023</span>
+      </div>
+      <div class="stat">
+        <span class="stat__value">70+</span>
+        <span class="stat__label">vendors and small businesses that first year</span>
+      </div>
+      <div class="stat">
+        <span class="stat__value">4th</span>
+        <span class="stat__label">annual festival in {{ event.dateYear }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Audit weakness #6: the current site puts four applications in an
+     undifferentiated list. Each one below says who it is for, in plain
+     English, before it asks anyone to click. -->
+<section class="section" id="apply">
+  <div class="container">
+    <div class="section__header">
+      <span class="eyebrow">Take part</span>
+      <hr class="motif-rule" aria-hidden="true">
+      <h2>Five ways to be in it, not just at it</h2>
+      <p class="lead">
+        Each one goes to a different team and asks for different things. Find
+        the one that describes you.
+      </p>
+    </div>
+
+    <div class="grid grid--2">
+      <article class="card card--teal">
+        <h3 class="card__title">Volunteer</h3>
+        <p class="card__body">
+          <strong>For you if</strong> you can give a few hours on the day.
+          Setup from 7 AM, the festival itself from 11 to 4, and teardown
+          after. Roles include helping vendors and performers, the kids' zone,
+          setup, and teardown. Students looking for community service hours are
+          welcome, and so are corporate volunteer groups.
+        </p>
+        <p class="card__footer">
+          <span class="tag tag--deadline">Apply by 6 September</span><br>
+          <a class="link-arrow" href="/get-involved/#volunteer" style="margin-top: 0.75rem;">Volunteer sign-up</a>
+        </p>
+      </article>
+
+      <article class="card card--red">
+        <h3 class="card__title">Perform on the stage</h3>
+        <p class="card__body">
+          <strong>For you if</strong> you are a musician, dancer, or other
+          performer, solo or in a group, and you want a set at the festival.
+          Sets run about 20 to 25 minutes. There is no compensation for
+          performances, and because stage time is limited, acceptance is not
+          guaranteed.
+        </p>
+        <p class="card__footer">
+          <span class="tag tag--deadline">Apply by 23 August</span><br>
+          <a class="link-arrow" href="/get-involved/#performer" style="margin-top: 0.75rem;">Performer application</a>
+        </p>
+      </article>
+
+      <article class="card card--green">
+        <h3 class="card__title">Dance with BLPAPA</h3>
+        <p class="card__body">
+          <strong>For you if</strong> you want to learn Filipino folk dance and
+          perform it with our own group rather than bringing your own act.
+          Rehearsals run Fridays through the season in Elk Grove, and your
+          first class is free if you are new to us. No experience needed.
+        </p>
+        <p class="card__footer">
+          <a class="link-arrow" href="/get-involved/#dancer">Dancer application</a>
+        </p>
+      </article>
+
+      <article class="card card--gold">
+        <h3 class="card__title">Vend at the festival</h3>
+        <p class="card__body">
+          <strong>For you if</strong> you sell food, retail, or want an
+          informational booth. Indoor and outdoor spaces are both in use this
+          year. Food vendors need their own health permits, and every booth is
+          inspected by the Elk Grove Fire Department.
+        </p>
+        <p class="card__footer">
+          <span class="tag tag--deadline">Apply by 31 August</span><br>
+          <a class="link-arrow" href="/get-involved/#vendor" style="margin-top: 0.75rem;">Vendor application</a>
+        </p>
+      </article>
+    </div>
+
+    <article class="card card--red" style="margin-top: 1.5rem;">
+      <h3 class="card__title">Sponsor the festival</h3>
+      <p class="card__body">
+        <strong>For you if</strong> you represent a business or organization
+        and want to put your name behind a cultural event that reaches Filipino
+        American families, artists, entrepreneurs, youth, and community leaders
+        across the region. Sponsorship is what keeps admission free.
+      </p>
+      <p class="card__footer">
+        <a class="link-arrow" href="#sponsorship">See sponsorship opportunities</a>
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="section section--teal-tint">
+  <div class="container">
+    <div class="section__header">
+      <span class="eyebrow">Vendors</span>
+      <hr class="motif-rule" aria-hidden="true">
+      <h2>Vendor spaces and what is required</h2>
+    </div>
+
+    <div class="split">
+      <div>
+        <h3>Spaces</h3>
+        <dl class="detail-list">
+          <dt>$150</dt>
+          <dd>Retail or informational tent, 10x10</dd>
+          <dt>$250</dt>
+          <dd>Retail or informational tent, 10x20</dd>
+          <dt>$300</dt>
+          <dd>Food tent, 10x10</dd>
+          <dt>$500</dt>
+          <dd>Food tent, 10x20</dd>
+          <dt>$500</dt>
+          <dd>Food truck</dd>
+        </dl>
+      </div>
+      <div>
+        <h3>Required of every vendor</h3>
+        <ul class="list-check">
+          <li>Outdoor canopies need weights on every leg and CPAI-83 certification.</li>
+          <li>Food vendors obtain their own health permits and documentation. Proof is requested after acceptance.</li>
+          <li>Booths are inspected by the Elk Grove Fire Department; food booths may also be inspected by a public health inspector.</li>
+          <li>Alcohol is prohibited.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 2.5rem;">Vendor timeline</h3>
+    <ul class="deadline-row">
+      <li class="deadline">
+        <span class="deadline__date">31 August</span>
+        <span class="deadline__what">Applications due, 11:59 PM</span>
+      </li>
+      <li class="deadline">
+        <span class="deadline__date">6 September</span>
+        <span class="deadline__what">Acceptance emails sent</span>
+      </li>
+      <li class="deadline">
+        <span class="deadline__date">15 September</span>
+        <span class="deadline__what">Payments due</span>
+      </li>
+      <li class="deadline">
+        <span class="deadline__date">22 September</span>
+        <span class="deadline__what">Setup and teardown instructions sent to paid vendors</span>
+      </li>
+    </ul>
+
+    <p>
+      Once payment is submitted after acceptance, you are committed to the
+      festival rain or shine, and refunds are not permitted. Submitting an
+      application does not guarantee a space; all applications are subject to
+      approval at BLPAPA's discretion.
+    </p>
+    <p class="cluster">
+      <a class="button button--primary" href="/get-involved/#vendor">Apply to vend</a>
+    </p>
+  </div>
+</section>
+
+<section class="section" id="sponsorship">
+  <div class="container">
+    <div class="section__header">
+      <span class="eyebrow">Sponsorship</span>
+      <hr class="motif-rule" aria-hidden="true">
+      <h2>Sponsor a living legacy</h2>
+      <p class="lead">
+        Sponsorship is the reason nobody pays at the gate. It connects your
+        organization with Filipino American families, artists, entrepreneurs,
+        youth, and community leaders, and it keeps a cultural celebration
+        running in a city where it is needed.
+      </p>
+    </div>
+
+    <div class="grid grid--3">
+      <article class="card card--red">
+        <span class="eyebrow">$5,000</span>
+        <h3 class="card__title">Presenting Sponsor</h3>
+        <ul class="list-check">
+          <li>"Presented by your company" on posters, flyers, digital ads, and press releases</li>
+          <li>Recognition on screen at the event and in media mentions</li>
+          <li>A representative gives welcome remarks</li>
+          <li>Dedicated thank-you post on social media, linking to your site</li>
+          <li>Named in post-event reports and communications</li>
+        </ul>
+      </article>
+
+      <article class="card card--gold">
+        <span class="eyebrow">$4,000</span>
+        <h3 class="card__title">Stage Sponsor</h3>
+        <ul class="list-check">
+          <li>"Stage sponsored by your company" on the main stage</li>
+          <li>Verbal acknowledgments by hosts throughout performances</li>
+          <li>Logo on marketing materials at the secondary tier</li>
+          <li>A representative introduces one of the main stage acts</li>
+          <li>Dedicated social media shout-out</li>
+        </ul>
+      </article>
+
+      <article class="card card--teal">
+        <span class="eyebrow">$3,000</span>
+        <h3 class="card__title">Street Eats</h3>
+        <ul class="list-check">
+          <li>"Street Eats section presented by your company" in festival signage and in the section</li>
+          <li>Logo on marketing materials at the secondary tier</li>
+          <li>Live event mentions</li>
+          <li>Dedicated social media shout-out</li>
+        </ul>
+      </article>
+
+      <article class="card card--teal">
+        <span class="eyebrow">$2,500</span>
+        <h3 class="card__title">Karaoke Contest</h3>
+        <ul class="list-check">
+          <li>"The [your company] Karaoke Contest" on all contest signage, rules, and promotion</li>
+          <li>A representative judges or presents awards</li>
+          <li>Logo on marketing materials at the secondary tier</li>
+          <li>Vendor space near the karaoke area</li>
+          <li>Option to provide branded prizes</li>
+        </ul>
+      </article>
+
+      <article class="card card--green">
+        <span class="eyebrow">$1,000</span>
+        <h3 class="card__title">Community Partner</h3>
+        <ul class="list-check">
+          <li>Logo on general event signage and banners</li>
+          <li>Mentions in "thank you to our sponsors" posts</li>
+          <li>Option of shared space with other vendors</li>
+        </ul>
+      </article>
+
+      <article class="card card--green">
+        <span class="eyebrow">$500</span>
+        <h3 class="card__title">Friends of BLPAPA</h3>
+        <ul class="list-check">
+          <li>Listed on marketing materials</li>
+          <li>Included in a collective thank-you post on social media</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="callout callout--gold" style="margin-top: 2rem;">
+      <p class="callout__title">Custom and in-kind partnerships</p>
+      <p>
+        If none of these fit, say so on the form. In-kind contributions and
+        custom arrangements are genuinely welcome, and benefits and
+        availability are confirmed with you before any payment.
+      </p>
+    </div>
+
+    <p class="cluster" style="margin-top: 2rem;">
+      <a class="button button--primary button--large" href="/get-involved/#sponsor">Begin a sponsorship conversation</a>
+      <a class="button button--outline" href="https://drive.google.com/file/d/1b7yoeVSQmDcZZIykRFB16kGrt27jtc8r/view?usp=drive_link">Download the sponsorship packet</a>
+    </p>
+  </div>
+</section>
+
+<section class="section section--navy">
+  <div class="container container--narrow">
+    <h2>Just want to come?</h2>
+    <p class="lead" style="color: #E8EEEE;">
+      Then come. It is free, it runs {{ event.timeRange }}, and you do not need
+      to tell anybody you are coming. Bring your family.
+    </p>
+    <p class="cluster">
+      <a class="button button--secondary" href="/gallery/">See what it looks like</a>
+      <a class="button button--outline" href="/donate/">Support the festival</a>
+    </p>
+  </div>
+</section>

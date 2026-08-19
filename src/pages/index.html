@@ -1,0 +1,312 @@
+<!--meta
+route: /
+title: Bukang Liwayway Pilipino-Amerikano Pangarap Asosasyon
+description: A Filipino-American cultural non-profit in Elk Grove, California. Come celebrate, learn, and carry the legacy forward with us at the Bayanihan Festival and year-round.
+-->
+
+<!-- Home follows the six-part sequence approved in the brand style guide and
+     recorded in HANDOFF.md §4: hero, mission in action, programs, festival,
+     stories, join. The hero carries ONE primary action on purpose. -->
+
+<section class="hero">
+  <!-- Sunrise rays from the logo. Decorative: delete it and nothing is lost. -->
+  <div class="motif-rays" aria-hidden="true"></div>
+  <div class="container hero__inner">
+    <div>
+      <a class="event-stamp" href="/events/bayanihan-festival/">
+        <span class="event-stamp__date" aria-hidden="true">
+          <span class="event-stamp__month">{{ event.dateMonth }}</span>
+          <span class="event-stamp__day">{{ event.dateDay }}</span>
+        </span>
+        <span class="event-stamp__text">{{ event.name }} {{ event.dateYear }} — free admission</span>
+      </a>
+
+      <h1 class="hero__title">A new dawn for Filipino culture, community, and legacy.</h1>
+
+      <p class="hero__lead">
+        <em>Bukang Liwayway</em> means dawn. We are a Filipino-American
+        non-profit in Elk Grove, and we gather to dance, cook, teach, and
+        celebrate what our families carried here. Come celebrate with us.
+      </p>
+
+      <div class="hero__actions">
+        <a class="button button--primary button--large" href="/get-involved/">Join our community</a>
+      </div>
+
+      <p><a class="link-arrow" href="/about/">Read our story</a></p>
+    </div>
+
+    <figure class="hero__figure">
+      <picture>
+        <source srcset="/assets/images/tinikling-bayanihan-festival.webp" type="image/webp">
+        <img src="/assets/images/tinikling-bayanihan-festival.jpg" width="755" height="504"
+             fetchpriority="high"
+             alt="Young dancers performing tinikling, stepping between bamboo poles clapped in rhythm, at the Bayanihan Festival.">
+      </picture>
+      <figcaption>
+        Youth dancing <em>tinikling</em> at the Bayanihan Festival, stepping
+        between bamboo poles clapped in rhythm.
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 2. Mission in action: celebrate, connect, carry forward. -->
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <span class="eyebrow">Our mission in action</span>
+      <hr class="motif-rule" aria-hidden="true">
+      <h2>Celebrate Filipino culture. Connect generations. Carry the legacy forward.</h2>
+      <p class="lead">
+        BLPAPA is the sole Filipino-American organization in Elk Grove
+        dedicated to preserving and celebrating Filipino culture. Founded in
+        2023, we do that in the most ordinary and most powerful way there is:
+        together, in a room, in person.
+      </p>
+    </div>
+
+    <div class="grid grid--3">
+      <article class="card card--red">
+        <h3 class="card__title">Celebrate</h3>
+        <p class="card__body">
+          Vibrant events where the music is loud, the food is real, and nobody
+          has to explain themselves. The Bayanihan Festival is the biggest, and
+          it is free to attend.
+        </p>
+        <p class="card__footer"><a class="link-arrow" href="/events/">See what is coming up</a></p>
+      </article>
+
+      <article class="card card--teal">
+        <h3 class="card__title">Connect</h3>
+        <p class="card__body">
+          Lolas and lolos beside teenagers, new arrivals beside third
+          generation <em>kababayan</em>. Intergenerational connection is
+          written into our vision, and it is why we meet face to face.
+        </p>
+        <p class="card__footer"><a class="link-arrow" href="/about/">How we started</a></p>
+      </article>
+
+      <article class="card card--green">
+        <h3 class="card__title">Carry forward</h3>
+        <p class="card__body">
+          Dance, song, language, and cooking passed hand to hand to the next
+          generation. What gets taught gets kept.
+        </p>
+        <p class="card__footer"><a class="link-arrow" href="/get-involved/">Come dance with us</a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Programs and learning. Cream band, white cards — style guide §07. -->
+<section class="section section--cream">
+  <div class="container">
+    <div class="section__header">
+      <span class="eyebrow">Programs</span>
+      <hr class="motif-rule" aria-hidden="true">
+      <h2>Learning that happens in a room together</h2>
+      <p class="lead">
+        One program is running now. The second is planned, and we say so
+        plainly rather than promising a schedule we do not yet have.
+      </p>
+    </div>
+
+    <div class="grid grid--2">
+      <article class="card card--green">
+        <p><span class="tag tag--active">Running now</span></p>
+        <h3 class="card__title">Performing Arts Program</h3>
+        <p class="card__body">
+          Traditional Filipino folk dance, song, and instruments. Rehearsals
+          build toward performing together at the Bayanihan Festival, and new
+          dancers are welcome whether or not you have ever danced.
+        </p>
+        <p class="card__footer"><a class="link-arrow" href="/get-involved/#dancer">Join the dance program</a></p>
+      </article>
+
+      <article class="card card--teal">
+        <p><span class="tag tag--planned">Planned</span></p>
+        <h3 class="card__title">Educational Program</h3>
+        <p class="card__body">
+          A planned expansion into Tagalog lessons, Filipino cuisine
+          instruction, and native instrument classes, alongside Filipino
+          history.
+        </p>
+        <!-- No start date is published for this program. Do not invent one;
+             verified-facts.md lists it as planned, not scheduled. -->
+        <p class="card__footer"><span class="placeholder">[Start dates to be confirmed with BLPAPA]</span></p>
+      </article>
+    </div>
+
+    <div class="callout callout--gold" style="margin-top: 2rem;">
+      <p class="callout__title">We have a home now</p>
+      <p>
+        As of May 2026 we have secured a dedicated rehearsal and community
+        space. Having somewhere of our own to practice, create, and gather
+        changes what we can offer.
+        <a href="/culture/newsletter/fourth-edition-may-2026/">Read the announcement</a>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Bayanihan Festival. Photography with a solid navy panel beside it, never
+     text laid over the photo (CLAUDE.md §3). -->
+<section class="section">
+  <div class="container">
+    <div class="feature-band">
+      <div class="feature-band__media">
+        <picture>
+          <source srcset="/assets/images/tinikling-bayanihan-festival.webp" type="image/webp">
+          <img src="/assets/images/tinikling-bayanihan-festival.jpg" width="755" height="504" loading="lazy"
+               alt="Dancers and audience together at the Bayanihan Festival in Elk Grove.">
+        </picture>
+      </div>
+      <div class="feature-band__panel">
+        <span class="eyebrow">Our flagship event</span>
+        <h2>The Bayanihan Festival</h2>
+        <p>
+          <em>Bayanihan</em> is the old picture of neighbours lifting a whole
+          house together and carrying it down the road. That is the day: local
+          artists, folk dance, Filipino-owned businesses, food, and several
+          thousand neighbours in one place.
+        </p>
+        <dl class="detail-list" style="margin-bottom: 1.5rem;">
+          <dt>When</dt>
+          <dd>{{ event.dateLong }}, {{ event.timeRange }}</dd>
+          <dt>Where</dt>
+          <dd>{{ event.venue }}, {{ event.city }}</dd>
+          <dt>Admission</dt>
+          <dd>{{ event.admission }} — funded by our vendors and sponsors</dd>
+        </dl>
+        <p class="cluster">
+          <a class="button button--event" href="/events/bayanihan-festival/">Festival details</a>
+          <a class="button button--outline" href="/get-involved/">Apply to take part</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid--3" style="margin-top: 3rem;">
+      <div class="stat">
+        <span class="stat__value">5,000+</span>
+        <span class="stat__label">attended our inaugural festival in 2023</span>
+      </div>
+      <div class="stat">
+        <span class="stat__value">70+</span>
+        <span class="stat__label">vendors and small businesses that first year</span>
+      </div>
+      <div class="stat">
+        <span class="stat__value">Free</span>
+        <span class="stat__label">admission, deliberately, so cost is never the reason someone stays home</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Stories and newsletter. Light teal field, navy text, navy button. -->
+<section class="section section--teal-tint">
+  <div class="container">
+    <div class="split split--wide-left">
+      <div>
+        <span class="eyebrow">Stories from the community</span>
+        <hr class="motif-rule" aria-hidden="true">
+        <h2>Letters, updates, and the news from our founder</h2>
+        <p>
+          Our newsletter used to live as a scanned image that most people could
+          not read on a phone. It is a real web page now, in real type, where a
+          search engine and a screen reader can both find it.
+        </p>
+        <p class="cluster">
+          <a class="button button--primary" href="/culture/">Read the newsletter</a>
+          <a class="button button--outline" href="/gallery/">See the photos</a>
+        </p>
+      </div>
+
+      <article class="card card--gold">
+        <span class="eyebrow">4th Edition — May 2026</span>
+        <h3 class="card__title">Letter from our Founder</h3>
+        <p class="card__body">
+          AAPI Heritage Month, Big Day of Giving, and the news that we have
+          secured a dedicated rehearsal and community space.
+        </p>
+        <p class="card__footer">
+          <a class="link-arrow" href="/culture/newsletter/fourth-edition-may-2026/">Read this issue</a>
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Press. Third-party credibility for a young non-profit, and none of it is
+     on the current site. Every URL here is in content/site.json. -->
+<section class="section section--tight">
+  <div class="container">
+    <div class="section__header">
+      <span class="eyebrow">In the news</span>
+      <h2>Coverage of the Bayanihan Festival</h2>
+    </div>
+    <ul class="press-strip">
+      <li class="press-strip__item">
+        <span class="press-strip__outlet">KCRA</span>
+        <span class="press-strip__meta">Television coverage, 2024 festival</span>
+        <a class="link-arrow" href="/gallery/">Watch the segment</a>
+      </li>
+      <li class="press-strip__item">
+        <span class="press-strip__outlet">Sacramento News &amp; Review</span>
+        <span class="press-strip__meta">17 October 2025</span>
+        <a class="link-arrow" href="https://sacramento.newsreview.com/2025/10/17/elk-groves-bayanihan-festival-brings-people-together-during-filipino-american-history-month/">Read the article</a>
+      </li>
+      <li class="press-strip__item">
+        <span class="press-strip__outlet">New Times Magazine</span>
+        <span class="press-strip__meta">Solving Sacramento, 2025</span>
+        <a class="link-arrow" href="https://newtimesmagazine.com/solvingsacramento/bayanihan-festival-in-sacramento-celebrates-local-filipino-culture/">Read the article</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- 6. Join the legacy. Every way in, named plainly. -->
+<section class="section section--navy">
+  <div class="container">
+    <div class="section__header">
+      <span class="eyebrow">Join the legacy</span>
+      <hr class="motif-rule" aria-hidden="true">
+      <h2>What is your dream? What is your legacy?</h2>
+      <p class="lead" style="color: #E8EEEE;">
+        There is a way in for everyone, and none of them require you to be
+        Filipino. Pick the one that fits.
+      </p>
+    </div>
+
+    <div class="grid grid--3">
+      <div>
+        <h3>Give your time</h3>
+        <ul class="list-check">
+          <li><a href="/get-involved/#volunteer">Volunteer at the festival</a></li>
+          <li><a href="/get-involved/#dancer">Dance with our performing arts program</a></li>
+          <li><a href="/get-involved/#performer">Perform on the festival stage</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Bring your business</h3>
+        <ul class="list-check">
+          <li><a href="/get-involved/#vendor">Vend at the festival</a></li>
+          <li><a href="/get-involved/#sponsor">Sponsor the event</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Support the mission</h3>
+        <ul class="list-check">
+          <li><a href="/donate/">Make a donation</a></li>
+          <li><a href="/events/bayanihan-festival/">Come to the festival</a></li>
+          <li><a href="/contact/">Say hello</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="cluster" style="margin-top: 2rem;">
+      <a class="button button--secondary button--large" href="/get-involved/">Find your way in</a>
+      <a class="button button--outline" href="/donate/">Support our mission</a>
+    </p>
+  </div>
+</section>

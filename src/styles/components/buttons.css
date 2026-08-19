@@ -1,0 +1,131 @@
+/* Button system — the four recipes in CLAUDE.md §3. Each pairing is a verified
+ * contrast pass: white/navy 14.74, white/deep-red 6.78, navy/gold 10.07. */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2xs);
+  min-height: var(--tap-target);
+  padding: 0.7em 1.4em;
+  border: 2px solid transparent;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.16s ease, color 0.16s ease,
+    border-color 0.16s ease, transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-card);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.button--primary {
+  background: var(--blpapa-navy);
+  color: var(--blpapa-white);
+  border-color: var(--blpapa-navy);
+}
+
+.button--primary:hover {
+  background: #063b47;
+  border-color: #063b47;
+  color: var(--blpapa-white);
+}
+
+/* Festival and deadline actions. Deep Red, never logo red — logo red fails AA
+ * for small text and this button carries a 16px label. */
+.button--event {
+  background: var(--blpapa-red-accessible);
+  color: var(--blpapa-white);
+  border-color: var(--blpapa-red-accessible);
+}
+
+.button--event:hover {
+  background: #941507;
+  border-color: #941507;
+  color: var(--blpapa-white);
+}
+
+.button--secondary {
+  background: var(--blpapa-gold);
+  color: var(--blpapa-navy);
+  border-color: var(--blpapa-gold);
+}
+
+.button--secondary:hover {
+  background: #e5bc05;
+  border-color: #e5bc05;
+  color: var(--blpapa-navy);
+}
+
+.button--outline {
+  background: transparent;
+  color: var(--blpapa-navy);
+  border-color: var(--blpapa-navy);
+}
+
+.button--outline:hover {
+  background: var(--blpapa-navy);
+  color: var(--blpapa-white);
+}
+
+/* On a navy field the outline flips to white so it stays visible. */
+.section--navy .button--outline,
+.site-footer .button--outline {
+  color: var(--blpapa-white);
+  border-color: var(--blpapa-white);
+}
+
+.section--navy .button--outline:hover,
+.site-footer .button--outline:hover {
+  background: var(--blpapa-white);
+  color: var(--blpapa-navy);
+}
+
+.button--large {
+  font-size: 1.0625rem;
+  padding: 0.85em 1.7em;
+}
+
+.button--block {
+  width: 100%;
+}
+
+.button[disabled],
+.button[aria-disabled='true'] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* A text link that behaves like a call to action without the button weight. */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 2px solid currentColor;
+  padding-bottom: 1px;
+}
+
+.link-arrow::after {
+  content: '\2192';
+  transition: transform 0.16s ease;
+}
+
+.link-arrow:hover::after {
+  transform: translateX(3px);
+}

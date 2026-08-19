@@ -1,0 +1,216 @@
+# Decap CMS configuration.
+#
+# The audience for this file is a non-technical owner who came from Google
+# Sites. Every label and hint below is written for her, not for a developer:
+# field names say what the thing is in plain English, and anything she must not
+# break carries a warning in its hint.
+#
+# The test that matters (HANDOFF.md §4, step 7): log in, add an event, see it
+# live. If that loop is confusing, the whole approach has failed.
+
+backend:
+  name: git-gateway
+  branch: main
+
+# Edits go through a pull request rather than straight to the live site, so a
+# mistake is recoverable and nothing appears publicly until it is approved.
+publish_mode: editorial_workflow
+
+media_folder: "src/assets/images"
+public_folder: "/assets/images"
+
+locale: en
+
+collections:
+  # ---------------------------------------------------------------- Settings
+  - name: settings
+    label: "Website settings"
+    files:
+      - name: site
+        label: "Contact details, links, and the next event"
+        file: "content/site.json"
+        description: >-
+          The values that change: your contact details, social links, the next
+          festival date, and the address the application forms send to.
+        fields:
+          - name: org
+            label: "Organization"
+            widget: object
+            fields:
+              - { name: name, label: "Full name", widget: string }
+              - { name: shortName, label: "Short name", widget: string }
+              - { name: tagline, label: "Tagline", widget: string }
+              - { name: founded, label: "Year founded", widget: number, value_type: int }
+              - { name: location, label: "Location", widget: string }
+
+          - name: contact
+            label: "Contact details"
+            widget: object
+            fields:
+              - { name: email, label: "Email address", widget: string }
+              - { name: phone, label: "Phone number", widget: string }
+              - name: mailingAddress
+                label: "Mailing address"
+                widget: object
+                fields:
+                  - { name: line1, label: "Street or PO Box", widget: string }
+                  - { name: city, label: "City", widget: string }
+                  - { name: state, label: "State", widget: string }
+                  - { name: zip, label: "ZIP code", widget: string }
+
+          - name: social
+            label: "Social media"
+            widget: object
+            fields:
+              - name: facebook
+                label: "Facebook page URL"
+                widget: string
+                required: false
+                hint: "Paste the full web address of your Facebook page."
+              - { name: instagramFestival, label: "Instagram — festival", widget: string, required: false }
+              - { name: instagramOrg, label: "Instagram — organization", widget: string, required: false }
+
+          - name: giving
+            label: "Donations"
+            widget: object
+            fields:
+              - name: url
+                label: "GivingEdge profile address"
+                widget: string
+                hint: "Every Donate button on the website points here."
+              - { name: platform, label: "Platform name", widget: string }
+              - { name: platformOperator, label: "Run by", widget: string }
+              - name: donorCount
+                label: "Number of donors so far"
+                widget: number
+                value_type: int
+                hint: >-
+                  Shown on the Donate page as "as of our last update". Change it
+                  whenever you like — it is written so being a little out of
+                  date does no harm.
+              - { name: ein, label: "EIN", widget: string }
+              - name: taxLine
+                label: "Tax-deductibility statement"
+                widget: text
+                hint: >-
+                  This wording has been checked. Please ask before changing it.
+
+          - name: forms
+            label: "Application forms"
+            widget: object
+            fields:
+              - name: unifiedEndpoint
+                label: "Where the website's forms send applications"
+                widget: string
+                required: false
+                hint: >-
+                  IMPORTANT. Paste the web app address from your Google Apps
+                  Script deployment. While this is empty the forms on the
+                  website will NOT accept applications, and visitors are shown
+                  the original Google Forms instead. After changing it, send a
+                  test application and check it arrives in both the spreadsheet
+                  and your inbox.
+              - { name: vendor, label: "Vendor Google Form", widget: string }
+              - { name: dancer, label: "Dancer Google Form", widget: string }
+              - { name: performer, label: "Performer Google Form", widget: string }
+              - { name: volunteer, label: "Volunteer Google Form", widget: string }
+              - { name: sponsorshipPacket, label: "Sponsorship packet PDF", widget: string }
+
+          - name: nextEvent
+            label: "Next event"
+            widget: object
+            hint: "Shown on the home page, the events page, and the festival page."
+            fields:
+              - { name: name, label: "Event name", widget: string }
+              - { name: date, label: "Date", widget: date, format: "YYYY-MM-DD" }
+              - { name: startTime, label: "Start time (24-hour, e.g. 11:00)", widget: string }
+              - { name: endTime, label: "End time (24-hour, e.g. 16:00)", widget: string }
+              - { name: venue, label: "Venue", widget: string }
+              - { name: city, label: "City and state", widget: string }
+              - { name: admission, label: "Admission", widget: string }
+
+          - name: nav
+            label: "Menu"
+            widget: list
+            hint: "The order here is the order across the top of every page."
+            fields:
+              - { name: label, label: "Menu text", widget: string }
+              - { name: url, label: "Page address", widget: string }
+
+          - name: press
+            label: "Press coverage"
+            widget: list
+            required: false
+            fields:
+              - { name: outlet, label: "Publication", widget: string }
+              - { name: year, label: "Year", widget: number, value_type: int }
+              - { name: url, label: "Link", widget: string, required: false }
+
+  # ------------------------------------------------------------- Newsletters
+  - name: newsletters
+    label: "Newsletter issues"
+    label_singular: "newsletter issue"
+    folder: "content/newsletters"
+    create: true
+    slug: "{{year}}-{{month}}-{{slug}}"
+    extension: md
+    description: >-
+      Each issue becomes its own web page, in real text that can be read on a
+      phone, found by Google, and read aloud by a screen reader.
+    fields:
+      - { name: title, label: "Title", widget: string, default: "Letter from our Founder" }
+      - { name: issue, label: "Issue number", widget: number, value_type: int }
+      - { name: edition, label: "Edition", widget: string, hint: "For example: 5th Edition" }
+      - { name: date, label: "Date", widget: date, format: "YYYY-MM-DD" }
+      - { name: period, label: "Month and year", widget: string, hint: "For example: August 2026" }
+      - name: slug
+        label: "Web address"
+        widget: string
+        hint: >-
+          Lowercase words joined by hyphens, for example
+          fifth-edition-august-2026. This becomes part of the page address, so
+          avoid changing it once the issue is published.
+      - { name: author, label: "Written by", widget: string }
+      - { name: author_role, label: "Their role", widget: string }
+      - name: summary
+        label: "One-line summary"
+        widget: text
+        hint: "Shown on the Culture page and in Google search results."
+      - name: source
+        label: "Where this came from"
+        widget: string
+        required: false
+        hint: "For example: scanned page supplied by Dr. Montemayor."
+      - name: transcription_status
+        label: "Transcription status"
+        widget: string
+        required: false
+        default: "complete"
+      - name: body
+        label: "The newsletter itself"
+        widget: markdown
+        hint: >-
+          Type it as printed. If a word in the original is genuinely unreadable,
+          write [unclear] rather than guessing at it.
+
+  # ------------------------------------------------------------------ Events
+  - name: events
+    label: "Events"
+    label_singular: "event"
+    folder: "content/events"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: md
+    description: >-
+      Additional events beyond the Bayanihan Festival. The festival's own date
+      lives under Website settings.
+    fields:
+      - { name: title, label: "Event name", widget: string }
+      - { name: date, label: "Date", widget: date, format: "YYYY-MM-DD" }
+      - { name: startTime, label: "Start time", widget: string, required: false }
+      - { name: endTime, label: "End time", widget: string, required: false }
+      - { name: venue, label: "Venue", widget: string, required: false }
+      - { name: city, label: "City", widget: string, required: false, default: "Elk Grove, CA" }
+      - { name: admission, label: "Admission", widget: string, required: false, default: "Free" }
+      - { name: summary, label: "One-line summary", widget: text }
+      - { name: body, label: "Details", widget: markdown, required: false }

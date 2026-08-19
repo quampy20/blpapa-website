@@ -1,0 +1,356 @@
+/* Forms — the unified Get Involved page (HANDOFF.md §5.8) plus the contact
+ * form. Fields are large and high-contrast on purpose: a vendor filling this
+ * in on a phone at a market, and an older community member at 200% zoom, are
+ * both core audience. */
+
+.form-picker {
+  display: grid;
+  gap: var(--space-s);
+}
+
+@media (min-width: 40em) {
+  .form-picker {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64em) {
+  .form-picker {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* Intake chooser. Each card says who it is for in plain English — the fix for
+ * audit weakness #6, "applications are undifferentiated". */
+.form-picker__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  padding: var(--space-m);
+  min-height: var(--tap-target);
+  background: var(--blpapa-white);
+  border: 2px solid var(--border-subtle);
+  border-radius: var(--radius-m);
+  text-align: left;
+  text-decoration: none;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: border-color 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease;
+}
+
+.form-picker__card:hover {
+  border-color: var(--blpapa-teal);
+  box-shadow: var(--shadow-card);
+  transform: translateY(-2px);
+  color: var(--color-text);
+}
+
+.form-picker__card[aria-current='true'],
+.form-picker__card.is-selected {
+  border-color: var(--blpapa-navy);
+  background: var(--surface-teal-tint);
+  box-shadow: var(--shadow-card);
+}
+
+.form-picker__name {
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--blpapa-navy);
+}
+
+.form-picker__who {
+  font-size: var(--step-small);
+  color: var(--color-text-muted);
+  margin: 0;
+  max-width: none;
+}
+
+/* The form itself */
+.form {
+  max-width: 46rem;
+}
+
+.form__section {
+  padding: var(--space-m) 0 0;
+  border: 0;
+  margin: 0 0 var(--space-l);
+}
+
+.form__legend {
+  font-family: var(--font-heading);
+  font-size: var(--step-h3);
+  font-weight: 700;
+  color: var(--blpapa-navy);
+  padding: 0;
+  margin-bottom: var(--space-2xs);
+}
+
+.form__section-note {
+  font-size: var(--step-small);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-m);
+  max-width: 60ch;
+}
+
+.form__grid {
+  display: grid;
+  gap: var(--space-m);
+}
+
+@media (min-width: 40em) {
+  .form__grid--2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
+}
+
+.field--full {
+  grid-column: 1 / -1;
+}
+
+.field__label {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--blpapa-navy);
+}
+
+/* Required is marked in text as well as with the asterisk, because the
+ * asterisk alone is a symbol convention rather than a label (CLAUDE.md §6). */
+.field__required {
+  color: var(--blpapa-red-accessible);
+  font-weight: 700;
+}
+
+.field__hint {
+  font-size: var(--step-small);
+  color: var(--color-text-muted);
+  margin: 0;
+  max-width: 62ch;
+}
+
+.field input[type='text'],
+.field input[type='email'],
+.field input[type='tel'],
+.field input[type='url'],
+.field input[type='number'],
+.field input[type='date'],
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: var(--tap-target);
+  padding: 0.6rem 0.75rem;
+  background: var(--blpapa-white);
+  border: 2px solid #9AA8AB; /* 3.1:1 on white — a visible boundary, not a hint */
+  border-radius: var(--radius-s);
+  font-size: var(--step-body);
+  color: var(--blpapa-ink);
+}
+
+.field textarea {
+  min-height: 7rem;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.field select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23042B34'%3E%3Cpath d='M5 7.5 10 13l5-5.5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.65rem center;
+  background-size: 1.1rem;
+  padding-right: 2.4rem;
+}
+
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible {
+  border-color: var(--blpapa-navy);
+}
+
+.field input[aria-invalid='true'],
+.field select[aria-invalid='true'],
+.field textarea[aria-invalid='true'] {
+  border-color: var(--blpapa-red-accessible);
+  background: #FDF7F6;
+}
+
+.field__error {
+  display: none;
+  font-size: var(--step-small);
+  font-weight: 700;
+  color: var(--blpapa-red-accessible);
+}
+
+.field__error.is-visible {
+  display: flex;
+  align-items: center;
+  gap: 0.35em;
+}
+
+/* The error marker is a glyph plus text, never colour alone. */
+.field__error.is-visible::before {
+  content: '\26A0';
+  font-size: 1em;
+}
+
+/* Checkbox and consent rows. The acknowledgment text is long by nature — these
+ * are legal-ish agreements — so the box stays top-aligned and the label wraps
+ * as a normal paragraph. */
+.check {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-xs);
+  align-items: start;
+  padding: var(--space-xs);
+  background: var(--blpapa-gray);
+  border-radius: var(--radius-s);
+  margin-bottom: var(--space-s);
+}
+
+.check input[type='checkbox'] {
+  width: 24px;
+  height: 24px;
+  margin: 0.15rem 0 0;
+  accent-color: var(--blpapa-navy);
+  flex-shrink: 0;
+}
+
+.check label {
+  font-size: var(--step-small);
+  line-height: 1.55;
+  cursor: pointer;
+}
+
+.check--emphasis {
+  background: #FEF6D5;
+  border-left: 4px solid var(--blpapa-gold);
+}
+
+/* Honeypot. Hidden from people, reachable by bots. Not `display:none`, which
+ * some bots skip — off-canvas and aria-hidden instead. No reCAPTCHA anywhere
+ * on this site: it is a third-party tracker and CLAUDE.md §2 bans those. */
+.form__trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-s);
+  padding-top: var(--space-s);
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* Submit status region. Always rendered so it can be aria-live; only styled
+ * once it carries a message. */
+.form__status {
+  margin-top: var(--space-m);
+}
+
+.form__status:empty {
+  display: none;
+}
+
+.form__status .callout {
+  margin-bottom: 0;
+}
+
+/* Fallback link block. Visible at all times, not only on failure — a user with
+ * JavaScript off cannot submit the native form at all (CLAUDE.md §5.2). */
+.form-fallback {
+  margin-top: var(--space-l);
+  padding: var(--space-m);
+  background: var(--blpapa-gray);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-m);
+}
+
+.form-fallback__title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--blpapa-navy);
+  margin-bottom: var(--space-2xs);
+}
+
+.form-fallback p {
+  font-size: var(--step-small);
+  margin-bottom: var(--space-2xs);
+}
+
+/* Notice shown while the unified endpoint is unset. Until the Sheet and Apps
+ * Script live on a BLPAPA-owned account, this form must not take real
+ * applications — HANDOFF.md §5.8 makes that a hard pre-launch gate. */
+.form-preview-notice {
+  padding: var(--space-m);
+  margin-bottom: var(--space-l);
+  background: #FCEDEA;
+  border: 2px solid var(--blpapa-red-accessible);
+  border-radius: var(--radius-m);
+}
+
+.form-preview-notice__title {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--blpapa-red-accessible);
+  margin-bottom: var(--space-2xs);
+}
+
+.form-panel[hidden] {
+  display: none;
+}
+
+.form-panel__intro {
+  margin-bottom: var(--space-l);
+}
+
+.deadline-row {
+  display: grid;
+  gap: var(--space-s);
+  padding: 0;
+  margin: 0 0 var(--space-l);
+  list-style: none;
+}
+
+@media (min-width: 40em) {
+  .deadline-row {
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  }
+}
+
+.deadline {
+  padding: var(--space-s);
+  background: var(--blpapa-white);
+  border-left: 4px solid var(--blpapa-red-accessible);
+  border-radius: 0 var(--radius-s) var(--radius-s) 0;
+  box-shadow: var(--shadow-card);
+  max-width: none;
+}
+
+.deadline__date {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--blpapa-navy);
+}
+
+.deadline__what {
+  display: block;
+  font-size: var(--step-small);
+  color: var(--color-text-muted);
+}

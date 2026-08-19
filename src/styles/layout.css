@@ -1,0 +1,133 @@
+/* Containers, section bands, and the grid primitives pages compose from.
+ * Mobile-first: these are the small-screen rules; breakpoints add up from
+ * 480 / 768 / 1024 / 1280 (CLAUDE.md §3). */
+
+.container {
+  width: min(100% - 2.5rem, var(--container));
+  margin-inline: auto;
+}
+
+.container--narrow {
+  width: min(100% - 2.5rem, var(--container-narrow));
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--section-pad);
+}
+
+.section--tight {
+  padding-block: clamp(2rem, 1.2rem + 3vw, 3.5rem);
+}
+
+/* Section surfaces. The 60/25/10/5 rule (CLAUDE.md §3) is enforced here more
+ * than anywhere else: white and cream carry the page, and only the footer and
+ * the occasional feature band go navy. */
+.section--cream {
+  background: var(--blpapa-cream);
+}
+
+.section--gray {
+  background: var(--blpapa-gray);
+}
+
+.section--teal-tint {
+  background: var(--surface-teal-tint);
+}
+
+.section--navy {
+  background: var(--blpapa-navy);
+  color: var(--blpapa-white);
+}
+
+.section--navy h1,
+.section--navy h2,
+.section--navy h3,
+.section--navy h4 {
+  color: var(--blpapa-white);
+}
+
+.section--navy a:not(.button) {
+  color: var(--blpapa-gold);
+}
+
+.section--navy a:not(.button):hover {
+  color: var(--blpapa-white);
+}
+
+.section__header {
+  margin-bottom: var(--space-l);
+}
+
+.section__header p {
+  margin-bottom: 0;
+}
+
+/* Eyebrow labels. Teal on white/cream is the style guide's "teal label" for
+ * story sections; the letterspacing keeps small caps legible at 15px. */
+.eyebrow {
+  display: block;
+  margin-bottom: var(--space-2xs);
+  font-family: var(--font-heading);
+  font-size: var(--step-small);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blpapa-teal);
+}
+
+.section--navy .eyebrow {
+  color: var(--blpapa-gold);
+}
+
+/* Grids */
+.grid {
+  display: grid;
+  gap: var(--space-m);
+}
+
+@media (min-width: 48em) {
+  .grid--2 { grid-template-columns: repeat(2, 1fr); }
+  .grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .grid--4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 64em) {
+  .grid--4 { grid-template-columns: repeat(4, 1fr); }
+  .grid { gap: var(--space-l); }
+}
+
+/* Two-column split that stacks on mobile. */
+.split {
+  display: grid;
+  gap: var(--space-l);
+  align-items: center;
+}
+
+@media (min-width: 56em) {
+  .split {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
+  .split--wide-left { grid-template-columns: 1.35fr 1fr; }
+  .split--wide-right { grid-template-columns: 1fr 1.35fr; }
+}
+
+.stack > * + * {
+  margin-top: var(--space-s);
+}
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+  align-items: center;
+}
+
+.prose > :last-child {
+  margin-bottom: 0;
+}
+
+main:focus {
+  outline: none;
+}

@@ -1,0 +1,79 @@
+{
+  "_comment": "Owner-editable values. Anything here can be changed in Decap CMS without touching code. Facts live in verified-facts.md; this file is for values that CHANGE.",
+
+  "org": {
+    "name": "Bukang Liwayway Pilipino-Amerikano Pangarap Asosasyon",
+    "shortName": "BLPAPA",
+    "tagline": "What is your dream? What is your legacy?",
+    "founded": 2023,
+    "location": "Elk Grove, California"
+  },
+
+  "contact": {
+    "email": "bukangliwayway@blpapa.org",
+    "phone": "279-901-1025",
+    "_phoneNote": "On GivingEdge but not their website. Confirm before publishing.",
+    "mailingAddress": {
+      "line1": "PO Box 580593",
+      "city": "Elk Grove",
+      "state": "CA",
+      "zip": "95758"
+    }
+  },
+
+  "social": {
+    "facebook": "",
+    "_facebookNote": "PLACEHOLDER - page exists, direct URL needed",
+    "instagramFestival": "https://www.instagram.com/bayanihanfestival/",
+    "instagramOrg": "https://www.instagram.com/bukangliwayway.blpapa/",
+    "_instagramNote": "Two accounts. Ask BLPAPA which is primary before featuring one."
+  },
+
+  "giving": {
+    "url": "https://www.bigdayofgiving.org/organization/Bukang-Liwayway-Pilipino-Amerikano-Pangarap-Asosasyon",
+    "platform": "GivingEdge",
+    "platformOperator": "Sacramento Region Community Foundation",
+    "donorCount": 27,
+    "_donorCountNote": "LIVE FIGURE as of 19 Aug 2026. Editable here so it never goes stale in code. Phrase it so drift is harmless. Never hardcode the goal or amount raised - see CLAUDE.md 5.5.",
+    "ein": "93-2844176",
+    "taxLine": "BLPAPA is a registered 501(c)(3) non-profit organization. EIN 93-2844176. Donations are tax-deductible to the extent allowed by law."
+  },
+
+  "forms": {
+    "_note": "Canonical Google Form URLs. Reproduce character-for-character. These remain the visible fallback beneath the unified form - HANDOFF.md 5.8.",
+    "vendor": "https://forms.gle/kouXfBpNwrdLDqUp8",
+    "dancer": "https://docs.google.com/forms/d/e/1FAIpQLSfeuSqK6Pfrc1bgEM8wTu8KkPxBQAUzUlV_B38VhUUs3sC7iw/viewform?usp=sharing",
+    "performer": "https://forms.gle/5qUU2HFtGZH783Cg8",
+    "volunteer": "https://forms.gle/rj6jPf3qSvStGwEN6",
+    "sponsorshipPacket": "https://drive.google.com/file/d/1b7yoeVSQmDcZZIykRFB16kGrt27jtc8r/view?usp=drive_link",
+    "unifiedEndpoint": "",
+    "_unifiedEndpointNote": "PLACEHOLDER - Google Apps Script Web App URL. Must be created on a BLPAPA-owned account. See HANDOFF.md 5.8."
+  },
+
+  "nav": [
+    { "label": "Home",         "url": "/" },
+    { "label": "About",        "url": "/about/" },
+    { "label": "Events",       "url": "/events/" },
+    { "label": "Get Involved", "url": "/get-involved/" },
+    { "label": "Culture",      "url": "/culture/" },
+    { "label": "Gallery",      "url": "/gallery/" },
+    { "label": "Donate",       "url": "/donate/" },
+    { "label": "Contact",      "url": "/contact/" }
+  ],
+
+  "nextEvent": {
+    "name": "Bayanihan Festival",
+    "date": "2026-09-27",
+    "startTime": "11:00",
+    "endTime": "16:00",
+    "venue": "District 56",
+    "city": "Elk Grove, CA",
+    "admission": "Free"
+  },
+
+  "press": [
+    { "outlet": "KCRA",                      "year": 2024, "url": "https://www.youtube.com/watch?v=Fe-r1JNRCqw", "_note": "Taken from BLPAPA's own sponsorship material. Confirm this is the intended segment before launch." },
+    { "outlet": "Sacramento News & Review",  "year": 2025, "url": "https://sacramento.newsreview.com/2025/10/17/elk-groves-bayanihan-festival-brings-people-together-during-filipino-american-history-month/" },
+    { "outlet": "New Times Magazine",        "year": 2025, "url": "https://newtimesmagazine.com/solvingsacramento/bayanihan-festival-in-sacramento-celebrates-local-filipino-culture/" }
+  ]
+}

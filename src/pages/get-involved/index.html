@@ -1,0 +1,914 @@
+<!--meta
+route: /get-involved/
+title: Get involved
+description: Volunteer, perform, dance with BLPAPA, vend, or sponsor the Bayanihan Festival. One page, five ways in, each one explained so you know which is yours.
+script: forms
+-->
+
+<!-- The unified intake page (HANDOFF.md §5.8). Five applications that used to
+     sit in an undifferentiated list of Google Form links now live here, each
+     introduced by who it is for.
+
+     Two rules govern this page and neither is optional:
+     1. The canonical Google Form for every intake stays visible as a fallback.
+        A visitor with JavaScript disabled cannot submit the form below at all,
+        and the fallback is their whole path (CLAUDE.md §5.2).
+     2. While forms.unifiedEndpoint is unset in content/site.json, the forms
+        must not accept real applications — an application landing in an
+        unmonitored spreadsheet is worse than no form at all. scripts/forms.js
+        puts the page into preview mode automatically when it is empty. -->
+
+<section class="page-hero">
+  <div class="motif-rays" aria-hidden="true"></div>
+  <div class="container page-hero__inner">
+    <span class="eyebrow">Get involved</span>
+    <h1 class="page-hero__title">Bring your talent, time, business, or support</h1>
+    <p class="page-hero__lead">
+      One place to volunteer, perform, dance with BLPAPA, vend, or build a
+      sponsorship. Start by finding the one that sounds like you.
+    </p>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="container">
+    <div class="callout" style="margin-bottom: 2rem;">
+      <p class="callout__title">{{ event.name }} — {{ event.dateLong }}</p>
+      <p>
+        {{ event.timeRange }} at {{ event.venue }}, 9711 Big Horn Blvd,
+        {{ event.city }} 95757. Free to attend.
+        <a href="/events/bayanihan-festival/">Full festival details</a>.
+      </p>
+    </div>
+
+    <h2 class="visually-hidden">Choose an application</h2>
+    <div class="form-picker" role="list">
+      <a class="form-picker__card" role="listitem" href="#volunteer" data-picker="volunteer">
+        <span class="form-picker__name">Volunteer</span>
+        <p class="form-picker__who">You can give a few hours on festival day.</p>
+      </a>
+      <a class="form-picker__card" role="listitem" href="#performer" data-picker="performer">
+        <span class="form-picker__name">Performer</span>
+        <p class="form-picker__who">You have an act and you want a set on the stage.</p>
+      </a>
+      <a class="form-picker__card" role="listitem" href="#dancer" data-picker="dancer">
+        <span class="form-picker__name">BLPAPA dancer</span>
+        <p class="form-picker__who">You want to learn folk dance and perform with our group.</p>
+      </a>
+      <a class="form-picker__card" role="listitem" href="#vendor" data-picker="vendor">
+        <span class="form-picker__name">Vendor</span>
+        <p class="form-picker__who">You sell food or retail, or want an information booth.</p>
+      </a>
+      <a class="form-picker__card" role="listitem" href="#sponsor" data-picker="sponsor">
+        <span class="form-picker__name">Sponsor</span>
+        <p class="form-picker__who">Your organization wants to back the festival.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div id="forms" data-endpoint="{{ site.forms.unifiedEndpoint }}">
+
+<!-- ============================ VOLUNTEER ============================ -->
+<section class="section form-panel" id="volunteer">
+  <div class="container">
+    <div class="form-panel__intro">
+      <span class="eyebrow">Volunteer</span>
+      <hr class="motif-rule" aria-hidden="true">
+      <h2>Volunteer sign-up</h2>
+      <p class="lead">
+        Thank you for wanting to help make this year's festival memorable.
+        Tell us your availability, interests, and skills and we will match you
+        to something that fits. <em>Maraming salamat.</em>
+      </p>
+      <p>
+        Festival hours are {{ event.timeRange }}. Setup begins at 7 AM, and
+        help is needed after 4 PM for closing. Some tasks involve lifting,
+        walking, standing for long periods, and exposure to loud music.
+      </p>
+      <p><span class="tag tag--deadline">Applications close Sunday 6 September</span></p>
+    </div>
+
+    <form class="form" data-intake="volunteer" novalidate>
+      <fieldset class="form__section">
+        <legend class="form__legend">Your information</legend>
+        <div class="form__grid form__grid--2">
+          <div class="field">
+            <label class="field__label" for="v-name">Full name <span class="field__required">(required)</span></label>
+            <input id="v-name" name="Full name" type="text" autocomplete="name" required>
+            <p class="field__error" id="v-name-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="v-email">Email <span class="field__required">(required)</span></label>
+            <input id="v-email" name="Email" type="email" autocomplete="email" required>
+            <p class="field__error" id="v-email-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="v-phone">Phone number <span class="field__required">(required)</span></label>
+            <input id="v-phone" name="Phone" type="tel" autocomplete="tel" required>
+            <p class="field__error" id="v-phone-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="v-contact">Best way to reach you <span class="field__required">(required)</span></label>
+            <select id="v-contact" name="Best way to reach you" required>
+              <option value="">Choose one</option>
+              <option>Email</option>
+              <option>Phone</option>
+              <option>Text message</option>
+            </select>
+            <p class="field__error" id="v-contact-error"></p>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form__section">
+        <legend class="form__legend">Availability and interests</legend>
+        <div class="form__grid">
+          <div class="field">
+            <label class="field__label" for="v-availability">What times are you available? <span class="field__required">(required)</span></label>
+            <p class="field__hint" id="v-availability-hint">Anything from 7 AM setup through post-4 PM closing helps, including a short shift.</p>
+            <textarea id="v-availability" name="Availability" aria-describedby="v-availability-hint" required></textarea>
+            <p class="field__error" id="v-availability-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="v-role">Is there a role or area you would like? <span class="field__required">(required)</span></label>
+            <p class="field__hint" id="v-role-hint">For example assisting vendors, assisting performers, the kids' zone, setup, or teardown. Naming one does not guarantee that assignment.</p>
+            <textarea id="v-role" name="Role interest" aria-describedby="v-role-hint" required></textarea>
+            <p class="field__error" id="v-role-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="v-skills">Any skills or qualifications that might be useful? <span class="field__required">(required)</span></label>
+            <p class="field__hint" id="v-skills-hint">For example first-aid certification, language proficiency, photography, graphic design, or emcee experience.</p>
+            <textarea id="v-skills" name="Skills" aria-describedby="v-skills-hint" required></textarea>
+            <p class="field__error" id="v-skills-error"></p>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form__section">
+        <legend class="form__legend">Volunteer background</legend>
+        <div class="form__grid form__grid--2">
+          <div class="field">
+            <label class="field__label" for="v-before">Have you volunteered with us before? <span class="field__required">(required)</span></label>
+            <select id="v-before" name="Volunteered before" required>
+              <option value="">Choose one</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+            <p class="field__error" id="v-before-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="v-student">Are you a student seeking community service hours? <span class="field__required">(required)</span></label>
+            <select id="v-student" name="Student service hours" required>
+              <option value="">Choose one</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+            <p class="field__error" id="v-student-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="v-group">Are you part of a corporate or other volunteer group? <span class="field__required">(required)</span></label>
+            <select id="v-group" name="Volunteer group" required>
+              <option value="">Choose one</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+            <p class="field__error" id="v-group-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="v-affiliation">Company or group affiliation</label>
+            <input id="v-affiliation" name="Company or group" type="text">
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form__section">
+        <legend class="form__legend">Accessibility and accommodations</legend>
+        <p class="form__section-note">
+          We would rather know in advance than have you turn up to something
+          that does not work for you.
+        </p>
+        <div class="form__grid">
+          <div class="field">
+            <label class="field__label" for="v-accom">Are there concerns, requests, or accommodations we should consider? <span class="field__required">(required)</span></label>
+            <select id="v-accom" name="Accommodations needed" required>
+              <option value="">Choose one</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+            <p class="field__error" id="v-accom-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="v-accom-detail">If yes, please describe them</label>
+            <textarea id="v-accom-detail" name="Accommodation details"></textarea>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="form__trap" aria-hidden="true">
+        <label for="v-website">Leave this field empty</label>
+        <input id="v-website" name="_website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="form__actions">
+        <button class="button button--primary button--large" type="submit">Send my volunteer sign-up</button>
+      </div>
+      <div class="form__status" role="status" aria-live="polite"></div>
+    </form>
+
+    <div class="form-fallback">
+      <p class="form-fallback__title">Prefer the original form?</p>
+      <p>
+        The Google Form BLPAPA has always used is still open, and it goes to
+        the same people. Use it if this form gives you any trouble or if you
+        have JavaScript turned off.
+      </p>
+      <p><a class="link-arrow" href="https://forms.gle/rj6jPf3qSvStGwEN6">Volunteer application on Google Forms</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PERFORMER ============================ -->
+<section class="section section--cream form-panel" id="performer">
+  <div class="container">
+    <div class="form-panel__intro">
+      <span class="eyebrow">Performer</span>
+      <hr class="motif-rule" aria-hidden="true">
+      <h2>Performer application</h2>
+      <p class="lead">
+        For musicians, dancers, and other performers who want a set on the
+        festival stage, solo or as a group.
+      </p>
+      <p>
+        Festival hosted by BLPAPA, {{ event.dateLong }}, {{ event.timeRange }}
+        at {{ event.venue }}, 9711 Big Horn Blvd, {{ event.city }} 95757.
+      </p>
+      <div class="callout callout--red">
+        <p class="callout__title">Read this before you apply</p>
+        <p>
+          There is no compensation offered for performances. Because of the
+          number of applications and limited venue time, acceptance is not
+          guaranteed. Accepted performers are confirmed by 6 September.
+        </p>
+      </div>
+      <p><span class="tag tag--deadline">Applications close 23 August, 11:59 PM</span></p>
+    </div>
+
+    <form class="form" data-intake="performer" novalidate>
+      <fieldset class="form__section">
+        <legend class="form__legend">Performer information</legend>
+        <div class="form__grid form__grid--2">
+          <div class="field">
+            <label class="field__label" for="p-name">Performer or group name <span class="field__required">(required)</span></label>
+            <input id="p-name" name="Performer or group name" type="text" required>
+            <p class="field__error" id="p-name-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="p-email">Email address <span class="field__required">(required)</span></label>
+            <input id="p-email" name="Email" type="email" autocomplete="email" required>
+            <p class="field__error" id="p-email-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="p-phone">Phone number <span class="field__required">(required)</span></label>
+            <input id="p-phone" name="Phone" type="tel" autocomplete="tel" required>
+            <p class="field__error" id="p-phone-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="p-type">Musician or dancer? <span class="field__required">(required)</span></label>
+            <select id="p-type" name="Musician or dancer" required>
+              <option value="">Choose one</option>
+              <option>Musician</option>
+              <option>Dancer</option>
+              <option>Other</option>
+            </select>
+            <p class="field__error" id="p-type-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="p-other">If other, what is your talent?</label>
+            <input id="p-other" name="Other talent" type="text">
+          </div>
+          <div class="field">
+            <label class="field__label" for="p-solo">Solo or group? <span class="field__required">(required)</span></label>
+            <select id="p-solo" name="Solo or group" required>
+              <option value="">Choose one</option>
+              <option>Solo</option>
+              <option>Group</option>
+            </select>
+            <p class="field__error" id="p-solo-error"></p>
+          </div>
+          <div class="field field--full">
+            <label class="field__label" for="p-members">Name of each member</label>
+            <p class="field__hint" id="p-members-hint">Required if you selected Group.</p>
+            <textarea id="p-members" name="Group members" aria-describedby="p-members-hint"></textarea>
+            <p class="field__error" id="p-members-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="p-social">Social media <span class="field__required">(required)</span></label>
+            <input id="p-social" name="Social media" type="text" required>
+            <p class="field__error" id="p-social-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="p-link">Practice or performance video or audio link <span class="field__required">(required)</span></label>
+            <input id="p-link" name="Media link" type="url" placeholder="https://" required>
+            <p class="field__error" id="p-link-error"></p>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form__section">
+        <legend class="form__legend">Set timing and playback</legend>
+        <p class="form__section-note">
+          <strong>Set timing.</strong> Each set is roughly 20 to 25 minutes,
+          with 10 minutes to prepare before and after. If your setup or
+          takedown is brief, your performance time may extend within the
+          assigned range.
+        </p>
+        <div class="check check--emphasis">
+          <input id="p-ack-timing" name="Acknowledged set timing" type="checkbox" value="Yes" required>
+          <label for="p-ack-timing">I have read and understand the set timing information. <span class="field__required">(required)</span></label>
+        </div>
+        <p class="field__error" id="p-ack-timing-error"></p>
+
+        <p class="form__section-note">
+          <strong>Playback.</strong> Performers using playback or tracks must
+          use USB, CD, or MP3 files. After acceptance, email your audio to the
+          confirmation address, and bring any USB adapter or AUX connection you
+          need on the day.
+        </p>
+        <div class="check check--emphasis">
+          <input id="p-ack-playback" name="Acknowledged playback" type="checkbox" value="Yes" required>
+          <label for="p-ack-playback">I have read and understand the playback requirements. <span class="field__required">(required)</span></label>
+        </div>
+        <p class="field__error" id="p-ack-playback-error"></p>
+      </fieldset>
+
+      <fieldset class="form__section">
+        <legend class="form__legend">Technical requirements</legend>
+        <div class="form__grid form__grid--2">
+          <div class="field field--full">
+            <label class="field__label" for="p-instruments">List your instruments</label>
+            <textarea id="p-instruments" name="Instruments"></textarea>
+          </div>
+          <div class="field">
+            <label class="field__label" for="p-amps">Are you bringing instrument amplifiers? <span class="field__required">(required)</span></label>
+            <select id="p-amps" name="Amplifiers" required>
+              <option value="">Choose one</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+            <p class="field__error" id="p-amps-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="p-mics-vocal">Microphones needed for vocals <span class="field__required">(required)</span></label>
+            <input id="p-mics-vocal" name="Microphones for vocals" type="number" min="0" step="1" required>
+            <p class="field__error" id="p-mics-vocal-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="p-mics-inst">Microphones needed for instruments <span class="field__required">(required)</span></label>
+            <input id="p-mics-inst" name="Microphones for instruments" type="number" min="0" step="1" required>
+            <p class="field__error" id="p-mics-inst-error"></p>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form__section">
+        <legend class="form__legend">Media consent</legend>
+        <p class="form__section-note">
+          BLPAPA may photograph or record this event for educational,
+          promotional, marketing, archival, and social media purposes. By
+          agreeing, you grant BLPAPA permission to use photographs and video
+          recordings in which you may appear for those purposes without
+          compensation. For participants under 18, a parent or legal guardian
+          must give consent.
+        </p>
+        <div class="form__grid">
+          <div class="field">
+            <label class="field__label" for="p-consent">Consent <span class="field__required">(required)</span></label>
+            <select id="p-consent" name="Media consent" required>
+              <option value="">Choose one</option>
+              <option>I agree</option>
+              <option>I disagree</option>
+            </select>
+            <p class="field__error" id="p-consent-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="p-questions">Questions or concerns <span class="field__required">(required)</span></label>
+            <p class="field__hint" id="p-questions-hint">Write "None" if you have none.</p>
+            <textarea id="p-questions" name="Questions" aria-describedby="p-questions-hint" required></textarea>
+            <p class="field__error" id="p-questions-error"></p>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="form__trap" aria-hidden="true">
+        <label for="p-website">Leave this field empty</label>
+        <input id="p-website" name="_website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="form__actions">
+        <button class="button button--primary button--large" type="submit">Send my performer application</button>
+      </div>
+      <div class="form__status" role="status" aria-live="polite"></div>
+    </form>
+
+    <div class="form-fallback">
+      <p class="form-fallback__title">Prefer the original form?</p>
+      <p>The Google Form BLPAPA has always used is still open and goes to the same people.</p>
+      <p><a class="link-arrow" href="https://forms.gle/5qUU2HFtGZH783Cg8">Performer application on Google Forms</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= DANCER ============================= -->
+<section class="section form-panel" id="dancer">
+  <div class="container">
+    <div class="form-panel__intro">
+      <span class="eyebrow">BLPAPA dancer</span>
+      <hr class="motif-rule" aria-hidden="true">
+      <h2>Dance with BLPAPA</h2>
+      <p class="lead">
+        For joining our Performing Arts Program: learning Filipino folk dance
+        with our group and performing it together at the festival. No
+        experience needed, and you do not need to be Filipino.
+      </p>
+
+      <div class="callout callout--gold">
+        <p class="callout__title">Your first class is free</p>
+        <p>
+          If you are new to BLPAPA and have never been to one of our classes,
+          your first class during the rehearsal period is a free trial. Come
+          and see whether it is for you before you commit to anything.
+        </p>
+      </div>
+
+      <dl class="detail-list" style="margin-bottom: 1.5rem;">
+        <dt>Rehearsals</dt>
+        <dd>Fridays, 5:00&ndash;6:30 PM, 10 July to 25 September</dd>
+        <dt>Where</dt>
+        <dd>Elk Grove, California. The address is sent to participants.</dd>
+        <dt>Performing</dt>
+        <dd>With BLPAPA at {{ event.venue }} on {{ event.dateLong }}</dd>
+      </dl>
+
+      <p>
+        After the free trial, anyone who wants to join the performance team
+        arranges a virtual meeting with Dr. Edith Montemayor by emailing
+        <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a>.
+      </p>
+    </div>
+
+    <form class="form" data-intake="dancer" novalidate>
+      <fieldset class="form__section">
+        <legend class="form__legend">Your information</legend>
+        <div class="form__grid form__grid--2">
+          <div class="field">
+            <label class="field__label" for="d-name">Name, first and last <span class="field__required">(required)</span></label>
+            <input id="d-name" name="Name" type="text" autocomplete="name" required>
+            <p class="field__error" id="d-name-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="d-email">Email <span class="field__required">(required)</span></label>
+            <input id="d-email" name="Email" type="email" autocomplete="email" required>
+            <p class="field__error" id="d-email-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="d-phone">Phone number <span class="field__required">(required)</span></label>
+            <input id="d-phone" name="Phone" type="tel" autocomplete="tel" required>
+            <p class="field__error" id="d-phone-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="d-social">Social media</label>
+            <p class="field__hint" id="d-social-hint">If applicable.</p>
+            <input id="d-social" name="Social media" type="text" aria-describedby="d-social-hint">
+          </div>
+          <div class="field">
+            <label class="field__label" for="d-contact">Best way to reach you <span class="field__required">(required)</span></label>
+            <select id="d-contact" name="Best way to reach you" required>
+              <option value="">Choose one</option>
+              <option>Email</option>
+              <option>Phone</option>
+              <option>Social media</option>
+            </select>
+            <p class="field__error" id="d-contact-error"></p>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form__section">
+        <legend class="form__legend">Dance background</legend>
+        <div class="form__grid">
+          <div class="field">
+            <label class="field__label" for="d-experience">What dance experience have you had? <span class="field__required">(required)</span></label>
+            <p class="field__hint" id="d-experience-hint">Cultural and other styles both count. If you have danced Filipino cultural dances, name which ones. "None" is a perfectly good answer.</p>
+            <textarea id="d-experience" name="Dance experience" aria-describedby="d-experience-hint" required></textarea>
+            <p class="field__error" id="d-experience-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="d-orgs">What dance organizations or clubs have you been part of? <span class="field__required">(required)</span></label>
+            <p class="field__hint" id="d-orgs-hint">Enter "None" if not applicable.</p>
+            <textarea id="d-orgs" name="Dance organizations" aria-describedby="d-orgs-hint" required></textarea>
+            <p class="field__error" id="d-orgs-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="d-heard">How did you hear about us? <span class="field__required">(required)</span></label>
+            <textarea id="d-heard" name="How did you hear about us" required></textarea>
+            <p class="field__error" id="d-heard-error"></p>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form__section">
+        <legend class="form__legend">Media consent</legend>
+        <p class="form__section-note">
+          BLPAPA may photograph or record classes, rehearsals, performances,
+          and related activities for educational, promotional, marketing,
+          archival, and social media purposes. By agreeing, you grant BLPAPA
+          permission to use photographs and video recordings in which you may
+          appear for those purposes without compensation. For participants
+          under 18, a parent or legal guardian must give consent.
+        </p>
+        <div class="form__grid">
+          <div class="field">
+            <label class="field__label" for="d-consent">Consent <span class="field__required">(required)</span></label>
+            <select id="d-consent" name="Media consent" required>
+              <option value="">Choose one</option>
+              <option>I agree</option>
+              <option>I disagree</option>
+            </select>
+            <p class="field__error" id="d-consent-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="d-questions">Questions, comments, or concerns</label>
+            <textarea id="d-questions" name="Questions"></textarea>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="form__trap" aria-hidden="true">
+        <label for="d-website">Leave this field empty</label>
+        <input id="d-website" name="_website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="form__actions">
+        <button class="button button--primary button--large" type="submit">Send my dancer application</button>
+      </div>
+      <div class="form__status" role="status" aria-live="polite"></div>
+    </form>
+
+    <div class="form-fallback">
+      <p class="form-fallback__title">Prefer the original form?</p>
+      <p>The Google Form BLPAPA has always used is still open and goes to the same people.</p>
+      <p><a class="link-arrow" href="https://docs.google.com/forms/d/e/1FAIpQLSfeuSqK6Pfrc1bgEM8wTu8KkPxBQAUzUlV_B38VhUUs3sC7iw/viewform?usp=sharing">Dancer application on Google Forms</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= VENDOR ============================= -->
+<section class="section section--cream form-panel" id="vendor">
+  <div class="container">
+    <div class="form-panel__intro">
+      <span class="eyebrow">Vendor</span>
+      <hr class="motif-rule" aria-hidden="true">
+      <h2>Vendor application</h2>
+      <p class="lead">
+        For selling food or retail, or hosting an informational booth. This
+        year's festival uses both the indoor and outdoor spaces at
+        {{ event.venue }}.
+      </p>
+      <p>
+        {{ event.dateLong }}, {{ event.timeRange }}, at 9711 Big Horn Blvd,
+        {{ event.city }} 95757.
+      </p>
+
+      <div class="callout callout--red">
+        <p class="callout__title">Read this before applying</p>
+        <ul class="list-check">
+          <li>Outdoor canopies need weights on every leg and CPAI-83 certification.</li>
+          <li>Food vendors obtain their own health permits and documentation. Proof is requested after acceptance, and failure to provide it forfeits the space.</li>
+          <li>Alcohol is prohibited.</li>
+        </ul>
+      </div>
+
+      <ul class="deadline-row">
+        <li class="deadline"><span class="deadline__date">31 August</span><span class="deadline__what">Applications due, 11:59 PM</span></li>
+        <li class="deadline"><span class="deadline__date">6 September</span><span class="deadline__what">Acceptance emails sent</span></li>
+        <li class="deadline"><span class="deadline__date">15 September</span><span class="deadline__what">Payments due</span></li>
+        <li class="deadline"><span class="deadline__date">22 September</span><span class="deadline__what">Setup instructions sent</span></li>
+      </ul>
+    </div>
+
+    <form class="form" data-intake="vendor" novalidate>
+      <fieldset class="form__section">
+        <legend class="form__legend">Required acknowledgment</legend>
+        <div class="check check--emphasis">
+          <input id="ve-ack-inspect" name="Acknowledged inspection" type="checkbox" value="Yes" required>
+          <label for="ve-ack-inspect">
+            I understand that, if selected, my tent and booth will be inspected
+            by the Elk Grove Fire Department, and that booths selling food may
+            be inspected by a local public health inspector. I will provide all
+            necessary materials and documentation. <span class="field__required">(required)</span>
+          </label>
+        </div>
+        <p class="field__error" id="ve-ack-inspect-error"></p>
+      </fieldset>
+
+      <fieldset class="form__section">
+        <legend class="form__legend">Business and contact information</legend>
+        <div class="form__grid form__grid--2">
+          <div class="field">
+            <label class="field__label" for="ve-business">Business or organization name <span class="field__required">(required)</span></label>
+            <input id="ve-business" name="Business name" type="text" autocomplete="organization" required>
+            <p class="field__error" id="ve-business-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="ve-email">Business or organization email <span class="field__required">(required)</span></label>
+            <input id="ve-email" name="Business email" type="email" autocomplete="email" required>
+            <p class="field__error" id="ve-email-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="ve-social">Business or organization social media <span class="field__required">(required)</span></label>
+            <input id="ve-social" name="Business social media" type="text" required>
+            <p class="field__error" id="ve-social-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="ve-share">May we share your social media to promote the event? <span class="field__required">(required)</span></label>
+            <select id="ve-share" name="Social sharing permission" required>
+              <option value="">Choose one</option>
+              <option>I will allow sharing</option>
+              <option>I will not allow sharing</option>
+            </select>
+            <p class="field__error" id="ve-share-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="ve-contact">Business or organization contact <span class="field__required">(required)</span></label>
+            <input id="ve-contact" name="Contact name" type="text" autocomplete="name" required>
+            <p class="field__error" id="ve-contact-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="ve-phone">Contact phone number <span class="field__required">(required)</span></label>
+            <input id="ve-phone" name="Contact phone" type="tel" autocomplete="tel" required>
+            <p class="field__error" id="ve-phone-error"></p>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form__section">
+        <legend class="form__legend">Vendor space</legend>
+        <div class="form__grid">
+          <div class="field">
+            <label class="field__label" for="ve-heat">Will you use a heat source or generator? <span class="field__required">(required)</span></label>
+            <select id="ve-heat" name="Heat source or generator" required>
+              <option value="">Choose one</option>
+              <option>Yes</option>
+              <option>No</option>
+              <option>Maybe — I will explain below</option>
+            </select>
+            <p class="field__error" id="ve-heat-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="ve-place">Indoor or outdoor preference <span class="field__required">(required)</span></label>
+            <select id="ve-place" name="Indoor or outdoor" required>
+              <option value="">Choose one</option>
+              <option>I prefer the indoor section</option>
+              <option>I prefer the outdoor section</option>
+              <option>I need to be outdoors because I am using a generator or heat</option>
+            </select>
+            <p class="field__error" id="ve-place-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="ve-space">Vendor space requested <span class="field__required">(required)</span></label>
+            <select id="ve-space" name="Vendor space" required>
+              <option value="">Choose one</option>
+              <option>$150 — Retail or informational tent, 10x10</option>
+              <option>$250 — Retail or informational tent, 10x20</option>
+              <option>$300 — Food tent, 10x10</option>
+              <option>$500 — Food tent, 10x20</option>
+              <option>$500 — Food truck</option>
+            </select>
+            <p class="field__error" id="ve-space-error"></p>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form__section">
+        <legend class="form__legend">Terms and conditions</legend>
+        <p class="form__section-note">
+          By completing this application you accept all policies in festival
+          emails and documents. Bayanihan Festival is not responsible for
+          injuries, theft, or damaged products within your space. You accept
+          full liability for yourself, your belongings, products, setup,
+          employees, and volunteers on the day. Once payment is submitted by
+          the deadline after acceptance you are committed to the festival rain
+          or shine, and refunds are not permitted.
+        </p>
+        <div class="check">
+          <input id="ve-terms" name="Agreed to terms" type="checkbox" value="Yes" required>
+          <label for="ve-terms">I agree to the terms and conditions. <span class="field__required">(required)</span></label>
+        </div>
+        <p class="field__error" id="ve-terms-error"></p>
+
+        <div class="check">
+          <input id="ve-nogurantee" name="Understands no guarantee" type="checkbox" value="Yes" required>
+          <label for="ve-nogurantee">
+            I understand that submitting an application does not guarantee a
+            festival space, and that all applications are subject to approval
+            at BLPAPA's discretion. <span class="field__required">(required)</span>
+          </label>
+        </div>
+        <p class="field__error" id="ve-nogurantee-error"></p>
+
+        <div class="form__grid form__grid--2" style="margin-top: 1.5rem;">
+          <div class="field">
+            <label class="field__label" for="ve-heard">How did you hear about us?</label>
+            <input id="ve-heard" name="How did you hear about us" type="text">
+          </div>
+          <div class="field">
+            <label class="field__label" for="ve-questions">Questions, suggestions, or details about heat and generator use</label>
+            <textarea id="ve-questions" name="Questions"></textarea>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="form__trap" aria-hidden="true">
+        <label for="ve-website">Leave this field empty</label>
+        <input id="ve-website" name="_website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="form__actions">
+        <button class="button button--primary button--large" type="submit">Send my vendor application</button>
+      </div>
+      <div class="form__status" role="status" aria-live="polite"></div>
+    </form>
+
+    <div class="form-fallback">
+      <p class="form-fallback__title">Prefer the original form?</p>
+      <p>The Google Form BLPAPA has always used is still open and goes to the same people.</p>
+      <p><a class="link-arrow" href="https://forms.gle/kouXfBpNwrdLDqUp8">Vendor application on Google Forms</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= SPONSOR ============================= -->
+<section class="section form-panel" id="sponsor">
+  <div class="container">
+    <div class="form-panel__intro">
+      <span class="eyebrow">Sponsor</span>
+      <hr class="motif-rule" aria-hidden="true">
+      <h2>Begin a sponsorship conversation</h2>
+      <p class="lead">
+        Tell us how your organization would like to take part. BLPAPA confirms
+        availability, recognition details, benefits, and payment arrangements
+        with you before anything is settled.
+      </p>
+      <p>
+        The tiers and what each includes are set out on the festival page, and
+        custom or in-kind proposals are genuinely welcome.
+        <a href="/events/bayanihan-festival/#sponsorship">See sponsorship opportunities</a>.
+      </p>
+    </div>
+
+    <form class="form" data-intake="sponsor" novalidate>
+      <fieldset class="form__section">
+        <legend class="form__legend">Organization and contact</legend>
+        <div class="form__grid form__grid--2">
+          <div class="field">
+            <label class="field__label" for="s-org">Company or organization <span class="field__required">(required)</span></label>
+            <p class="field__hint" id="s-org-hint">Your public-facing organization name.</p>
+            <input id="s-org" name="Organization" type="text" autocomplete="organization" aria-describedby="s-org-hint" required>
+            <p class="field__error" id="s-org-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="s-contact">Primary contact <span class="field__required">(required)</span></label>
+            <input id="s-contact" name="Primary contact" type="text" autocomplete="name" required>
+            <p class="field__error" id="s-contact-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="s-email">Email <span class="field__required">(required)</span></label>
+            <input id="s-email" name="Email" type="email" autocomplete="email" required>
+            <p class="field__error" id="s-email-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="s-phone">Phone <span class="field__required">(required)</span></label>
+            <input id="s-phone" name="Phone" type="tel" autocomplete="tel" required>
+            <p class="field__error" id="s-phone-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="s-website-url">Website</label>
+            <input id="s-website-url" name="Website" type="url" placeholder="https://">
+          </div>
+          <div class="field">
+            <label class="field__label" for="s-social">Social media</label>
+            <p class="field__hint" id="s-social-hint">Profile links or handles.</p>
+            <input id="s-social" name="Social media" type="text" aria-describedby="s-social-hint">
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form__section">
+        <legend class="form__legend">Sponsorship details</legend>
+        <div class="form__grid form__grid--2">
+          <div class="field field--full">
+            <label class="field__label" for="s-tier">Sponsorship opportunity <span class="field__required">(required)</span></label>
+            <select id="s-tier" name="Sponsorship opportunity" required>
+              <option value="">Choose an opportunity</option>
+              <option>Presenting Sponsor — $5,000</option>
+              <option>Stage Sponsor — $4,000</option>
+              <option>Street Eats — $3,000</option>
+              <option>Karaoke Contest — $2,500</option>
+              <option>Community Partner — $1,000</option>
+              <option>Friends of BLPAPA — $500</option>
+              <option>Custom or in-kind proposal</option>
+            </select>
+            <p class="field__error" id="s-tier-error"></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="s-billing">Billing address</label>
+            <textarea id="s-billing" name="Billing address" placeholder="Street, city, state, ZIP"></textarea>
+          </div>
+          <div class="field">
+            <label class="field__label" for="s-participation">Representative participation</label>
+            <select id="s-participation" name="Representative participation">
+              <option>No preference</option>
+              <option>Welcome remarks</option>
+              <option>Introduce a main-stage act</option>
+              <option>Karaoke judge or award presenter</option>
+              <option>Please contact me</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field__label" for="s-recognition">Public recognition name</label>
+            <p class="field__hint" id="s-recognition-hint">Exactly as it should appear in print and on screen.</p>
+            <input id="s-recognition" name="Public recognition name" type="text" aria-describedby="s-recognition-hint">
+          </div>
+          <div class="field field--full">
+            <label class="field__label" for="s-proposal">Questions, custom sponsorship, or in-kind proposal</label>
+            <textarea id="s-proposal" name="Proposal" placeholder="Describe your partnership idea, contribution, or special request"></textarea>
+          </div>
+        </div>
+
+        <!-- The mockup had a logo file input. Dropped deliberately: this form
+             posts to an Apps Script Web App as urlencoded text, which cannot
+             carry a file, and adding a third-party upload service would put
+             sponsor assets with a vendor nobody agreed to. Asking by email
+             after confirmation is simpler and matches how BLPAPA already
+             works. -->
+        <div class="callout" style="margin-top: 1.5rem;">
+          <p class="callout__title">About your logo</p>
+          <p>
+            No need to upload anything here. Once we have confirmed your
+            sponsorship we will email you and ask for artwork, ideally an SVG,
+            a transparent PNG, or a print-quality PDF.
+          </p>
+        </div>
+      </fieldset>
+
+      <fieldset class="form__section">
+        <legend class="form__legend">Before you send</legend>
+        <div class="check check--emphasis">
+          <input id="s-ack" name="Acknowledged confirmation" type="checkbox" value="Yes" required>
+          <label for="s-ack">
+            I understand that sponsorship benefits and availability will be
+            confirmed by BLPAPA before payment. <span class="field__required">(required)</span>
+          </label>
+        </div>
+        <p class="field__error" id="s-ack-error"></p>
+      </fieldset>
+
+      <div class="form__trap" aria-hidden="true">
+        <label for="s-trap">Leave this field empty</label>
+        <input id="s-trap" name="_website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="form__actions">
+        <button class="button button--primary button--large" type="submit">Send sponsorship interest</button>
+      </div>
+      <div class="form__status" role="status" aria-live="polite"></div>
+    </form>
+
+    <div class="form-fallback">
+      <p class="form-fallback__title">Prefer to talk it through?</p>
+      <p>
+        There is no separate Google Form for sponsorship. Email
+        <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a>
+        or call {{ site.contact.phone }} and we will take it from there.
+      </p>
+      <p><a class="link-arrow" href="https://drive.google.com/file/d/1b7yoeVSQmDcZZIykRFB16kGrt27jtc8r/view?usp=drive_link">Download the sponsorship packet</a></p>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<section class="section section--navy">
+  <div class="container container--narrow">
+    <h2>Not sure which one is yours?</h2>
+    <p class="lead" style="color: #E8EEEE;">
+      Email us and describe what you would like to do. Somebody will point you
+      at the right form, or just talk it through with you.
+    </p>
+    <p class="cluster">
+      <a class="button button--secondary" href="mailto:{{ site.contact.email }}">Email {{ site.contact.email }}</a>
+      <a class="button button--outline" href="/contact/">Contact page</a>
+    </p>
+  </div>
+</section>

@@ -1,0 +1,228 @@
+/* Site header — white background, full horizontal logo, navy navigation.
+ * Style guide §07: "maximum logo clarity". Nothing decorative competes here. */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--blpapa-white);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-m);
+  padding-block: var(--space-xs);
+}
+
+.site-header__logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+  border-radius: var(--radius-s);
+}
+
+/* The horizontal lockup is the main site logo. Its floor is ~280px wide; below
+ * that CLAUDE.md §3 says swap to the seal rather than shrink the lockup, which
+ * is what the two images below do at the 40em breakpoint. */
+.site-header__logo img {
+  width: 232px;
+  height: auto;
+}
+
+.site-header__logo--mark img {
+  width: 48px;
+  height: 48px;
+}
+
+/* Below 40em the lockup and the menu button cannot share the bar without the
+   lockup dropping under its minimum legible width, so the simplified mark
+   takes over. */
+.site-header__logo--horizontal { display: none; }
+
+@media (min-width: 40em) {
+  .site-header__logo--horizontal { display: inline-flex; }
+  .site-header__logo--mark { display: none; }
+}
+
+@media (min-width: 75em) {
+  .site-header__logo img { width: 296px; }
+}
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+/* Mobile menu toggle. A real <button> with real state — CLAUDE.md §6. */
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  min-height: var(--tap-target);
+  min-width: var(--tap-target);
+  padding: 0 var(--space-xs);
+  background: transparent;
+  border: 2px solid var(--blpapa-navy);
+  border-radius: var(--radius-pill);
+  color: var(--blpapa-navy);
+  font-family: var(--font-heading);
+  font-size: var(--step-small);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.nav-toggle__bars {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  position: relative;
+}
+
+.nav-toggle__bars::before,
+.nav-toggle__bars::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+}
+
+.nav-toggle__bars::before { top: -6px; }
+.nav-toggle__bars::after { top: 6px; }
+
+.nav-toggle[aria-expanded='true'] {
+  background: var(--blpapa-navy);
+  color: var(--blpapa-white);
+}
+
+.site-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target);
+  padding: 0 var(--space-2xs);
+  color: var(--blpapa-navy);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+
+.site-nav__link:hover {
+  color: var(--blpapa-teal);
+  border-bottom-color: var(--blpapa-gold);
+}
+
+/* Current page is marked twice — colour plus a rule — because colour alone may
+ * not carry meaning (CLAUDE.md §6). aria-current does the same job for AT. */
+.site-nav__link.is-current {
+  color: var(--blpapa-teal);
+  border-bottom-color: var(--blpapa-red-accessible);
+}
+
+/* Donate: a persistent header button, visually distinct from the nav links
+ * (CLAUDE.md §4). It keeps its fixed slot in the nav order. */
+.site-nav__link--donate {
+  background: var(--blpapa-red-accessible);
+  color: var(--blpapa-white);
+  border: 2px solid var(--blpapa-red-accessible);
+  border-radius: var(--radius-pill);
+  padding: 0 var(--space-m);
+  font-weight: 700;
+}
+
+.site-nav__link--donate:hover,
+.site-nav__link--donate.is-current {
+  background: #941507;
+  border-color: #941507;
+  color: var(--blpapa-white);
+}
+
+/* Mobile: the nav is a disclosure panel under the header bar. */
+.site-nav {
+  display: none;
+  width: 100%;
+  padding-bottom: var(--space-s);
+}
+
+.site-nav.is-open {
+  display: block;
+}
+
+.site-nav.is-open .site-nav__list {
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.site-nav.is-open .site-nav__item {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.site-nav.is-open .site-nav__link {
+  width: 100%;
+  min-height: 52px;
+  padding-inline: var(--space-2xs);
+  border-bottom: none;
+}
+
+.site-nav.is-open .site-nav__link--donate {
+  margin-block: var(--space-s);
+  justify-content: center;
+}
+
+.site-nav.is-open .site-nav__item:last-child {
+  border-bottom: none;
+}
+
+@media (min-width: 64em) {
+  .site-header__inner {
+    flex-wrap: nowrap;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .site-nav {
+    display: block;
+    width: auto;
+    padding-bottom: 0;
+  }
+
+  .site-nav__list {
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: var(--space-2xs);
+  }
+
+  .site-nav__link {
+    padding-inline: var(--space-2xs);
+    font-size: var(--step-small);
+  }
+
+  .site-nav__link--donate {
+    padding-inline: var(--space-s);
+  }
+}
+
+@media (min-width: 75em) {
+  .site-nav__list { gap: var(--space-xs); }
+  .site-nav__link { font-size: 1rem; padding-inline: var(--space-xs); }
+}
